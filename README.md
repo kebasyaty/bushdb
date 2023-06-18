@@ -1,4 +1,4 @@
-[![Logo](https://github.com/kebasyaty/maribordb/raw/master/images/logo.svg "Logo")](https://github.com/kebasyaty/maribordb "Logo")
+[![Logo](https://raw.githubusercontent.com/kebasyaty/maribordb/105e7392a07320b93e481e4d3af5ac8c2c8113aa/images/logo.svg?token=AFISH25ELE2KUVP4HYJTK3LER4QRC "Logo")](https://github.com/kebasyaty/maribordb "Logo")
 
 # MariborDB
 
