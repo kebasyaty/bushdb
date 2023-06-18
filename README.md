@@ -1,2 +1,2 @@
-# -maribordb
+# maribordb
 MariborDB
