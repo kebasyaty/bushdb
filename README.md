@@ -1,6 +1,6 @@
 [![Logo](https://github.com/kebasyaty/maribordb/raw/main/images/logo.svg "Logo")](https://github.com/kebasyaty/maribordb "Logo")
 
-# MariborDB
+# bushDB
 
 TODO: Write a description here
 
