@@ -11,7 +11,7 @@ TODO: Write a description here
    ```yaml
    dependencies:
      bushdb:
-       github: your-github-user/bushdb
+       github: kebasyaty/bushdb
    ```
 
 2. Run `shards install`
