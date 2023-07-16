@@ -1,2 +1,2 @@
 require "spec"
-require "../src/maribordb"
+require "../src/bushdb"

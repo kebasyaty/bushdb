@@ -1,4 +1,4 @@
-[![Logo](https://github.com/kebasyaty/maribordb/raw/main/images/logo.svg "Logo")](https://github.com/kebasyaty/maribordb "Logo")
+[![Logo](https://github.com/kebasyaty/bushdb/raw/main/images/logo.svg "Logo")](https://github.com/kebasyaty/bushdb "Logo")
 
 # bushDB
 
@@ -10,8 +10,8 @@ TODO: Write a description here
 
    ```yaml
    dependencies:
-     maribordb:
-       github: your-github-user/maribordb
+     bushdb:
+       github: your-github-user/bushdb
    ```
 
 2. Run `shards install`
@@ -19,7 +19,7 @@ TODO: Write a description here
 ## Usage
 
 ```crystal
-require "maribordb"
+require "bushdb"
 ```
 
 TODO: Write usage instructions here
@@ -30,7 +30,7 @@ TODO: Write development instructions here
 
 ## Contributing
 
-1. Fork it (<https://github.com/your-github-user/maribordb/fork>)
+1. Fork it (<https://github.com/your-github-user/bushdb/fork>)
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)

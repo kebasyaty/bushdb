@@ -1,6 +1,6 @@
 require "./spec_helper"
 
-describe Maribordb do
+describe Bushdb do
   # TODO: Write tests
 
   it "works" do
