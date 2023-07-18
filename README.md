@@ -24,18 +24,8 @@ require "bushdb"
 
 TODO: Write usage instructions here
 
-## Development
+## License
 
-TODO: Write development instructions here
+**This project is licensed under the** [MIT](https://github.com/kebasyaty/bushdb/blob/main/LICENSE "MIT").
 
-## Contributing
-
-1. Fork it (<https://github.com/your-github-user/bushdb/fork>)
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create a new Pull Request
-
-## Contributors
-
-- [kebasyaty](https://github.com/your-github-user) - creator and maintainer
+## Changelog
