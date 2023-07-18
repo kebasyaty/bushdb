@@ -2,7 +2,7 @@
 
 # bushDB
 
-bushDB is a fast key-value storage library that provides an ordered mapping from string keys to (String, Number, Array and Hash) values.
+bushDB is a fast key-value storage library that provides an ordered mapping from string keys to String, Number, Array and Hash values.
 Maximum capacity 340282366920938463463374607431768211456 keys and their values.
 The value of any key can be obtained in 32 steps, thereby achieving high performance.
 
