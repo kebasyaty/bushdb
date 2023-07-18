@@ -2,7 +2,9 @@
 
 # bushDB
 
-TODO: Write a description here
+bushDB is a fast key-value storage library.
+Maximum capacity 340282366920938463463374607431768211456 keys and their values.
+The value of any key can be obtained in 32 steps, thereby achieving high performance.
 
 ## Installation
 
