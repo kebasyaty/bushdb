@@ -1,10 +1,12 @@
 name: bushdb
-description: bushDB is a fast key-value storage library.
 version: 0.1.0
+crystal: '>= 1.9.0'
 
 authors:
-  - kebasyaty <kebasyaty@gmail.com>
-
-crystal: 1.9.0
-
+- Gennady Kostyunin <kebasyaty@gmail.com>
 license: MIT
+
+description: |
+  bushDB is a fast key-value storage library.
+
+github: https://github.com/kebasyaty/bushdb
