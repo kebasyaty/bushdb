@@ -34,3 +34,5 @@ require "bushdb"
 **This project is licensed under the** [MIT](https://github.com/kebasyaty/bushdb/blob/main/LICENSE "MIT").
 
 ## Changelog
+
+[View the change history.](https://github.com/kebasyaty/bushdb/blob/master/CHANGELOG.md "View the change history.")
