@@ -36,3 +36,15 @@ require "bushdb"
 ## Changelog
 
 [View the change history.](https://github.com/kebasyaty/bushdb/blob/master/CHANGELOG.md "View the change history.")
+
+## Contributing
+
+1. Fork it (<https://github.com/kebasyaty/bushdb/fork>)
+2. Create your feature branch (`git checkout -b my-new-feature`)
+3. Commit your changes (`git commit -am 'Add some feature'`)
+4. Push to the branch (`git push origin my-new-feature`)
+5. Create a new Pull Request
+
+## Contributors
+
+- [kebasyaty](https://github.com/kebasyaty) Gennady Kostyunin - creator and maintainer
