@@ -7,6 +7,8 @@ The library uses fractal-tree addressing.
 The maximum capacity of the database 340282366920938463463374607431768211456 addresses.
 The value of any key can be obtained in 32 steps, thereby achieving high performance.
 
+[![Docs](https://img.shields.io/badge/docs-available-brightgreen.svg)](<LINK-TO-YOUR-DOCUMENTATION>)
+
 ## Installation
 
 1. Add the dependency to your `shard.yml`:
