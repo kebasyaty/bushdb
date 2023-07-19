@@ -25,8 +25,6 @@ The value of any key can be obtained in 32 steps, thereby achieving high perform
 require "bushdb"
 ```
 
-TODO: Write usage instructions here
-
 ## License
 
 **This project is licensed under the** [MIT](https://github.com/kebasyaty/bushdb/blob/main/LICENSE "MIT").
