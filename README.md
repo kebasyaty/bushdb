@@ -10,6 +10,7 @@ The value of any key can be obtained in 32 steps, thereby achieving high perform
 [![Docs](https://img.shields.io/badge/docs-available-brightgreen.svg)](LINK-TO-YOUR-DOCUMENTATION)
 [![GitHub release](https://img.shields.io/github/release/kebasyaty/bushdb.svg)](https://github.com/kebasyaty/bushdb/releases)
 [![Github all releases](https://img.shields.io/github/downloads/Naereen/StrapDown.js/total.svg)](https://github.com/kebasyaty/bushdb/releases/)
+[![GitHub latest commit](https://badgen.net/github/last-commit/Naereen/Strapdown.js)](https://github.com/kebasyaty/bushdb/commit/)
 [![GitHub license](https://badgen.net/github/license/Naereen/Strapdown.js)](https://github.com/kebasyaty/bushdb/blob/main/LICENSE)
 
 ## Installation
