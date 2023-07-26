@@ -8,6 +8,7 @@ The maximum capacity of the database 16**32=340282366920938463463374607431768211
 The value of any key can be obtained in 32 steps, thereby achieving high performance.
 
 [![Docs](https://img.shields.io/badge/docs-available-brightgreen.svg)](LINK-TO-YOUR-DOCUMENTATION)
+![Static Badge](https://img.shields.io/badge/crystal-v1.9%2B-red)
 [![GitHub release](https://img.shields.io/github/release/kebasyaty/bushdb.svg)](https://github.com/kebasyaty/bushdb/releases)
 [![Github all releases](https://img.shields.io/github/downloads/Naereen/StrapDown.js/total.svg)](https://github.com/kebasyaty/bushdb/releases/)
 [![GitHub latest commit](https://badgen.net/github/last-commit/kebasyaty/bushdb)](https://github.com/kebasyaty/bushdb/commit/)
