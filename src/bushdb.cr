@@ -35,7 +35,7 @@ module Bushdb
         unless Dir.exists?(branch_path)
           Dir.mkdir_p(branch_path, mode = @branch_mode)
         end
-        # ...
+        # Write key-value to the database.
         leaf_path : Path = branch_path / "leaf.txt"
         File.write(leaf_path, "test 2")
       end
