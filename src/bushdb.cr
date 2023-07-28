@@ -36,7 +36,7 @@ module Bushdb
           Dir.mkdir_p(branch_path, mode = @branch_mode)
         end
         # ...
-        leaf_path : Path = branch_path / "data.txt"
+        leaf_path : Path = branch_path / "leaf.txt"
         File.write(leaf_path, "test 2")
       end
     end
