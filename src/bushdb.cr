@@ -19,10 +19,10 @@ module Bushdb
     property root_db : String = "store"
     # Directory permissions.
     # The linux-style permission mode can be specified, with a default of 777 (0o777).
-    property dir_mode : Int32 = 777
+    property branch_mode : Int32 = 777
     # File permissions.
     # Default by 0o666 for read-write.
-    property file_mode : Int32 = 0o666
+    property leaf_mode : Int32 = 0o666
 
     # Add key-value pair(s) to the database.
     def set(data : Hash(String, String))
@@ -33,11 +33,11 @@ module Bushdb
         branch_path : Path = Path.new(@root_store, *TupleStrSize32.from(md5.split(//)))
         # If the branch does not exist, need to create it.
         unless Dir.exists?(branch_path)
-          Dir.mkdir_p(branch_path, mode = @dir_mode)
+          Dir.mkdir_p(branch_path, mode = @branch_mode)
         end
         # ...
-        file_path : Path = dir_path / "data.txt"
-        File.write(file_path, "test 2")
+        leaf_path : Path = branch_path / "data.txt"
+        File.write(leaf_path, "test 2")
       end
     end
   end
