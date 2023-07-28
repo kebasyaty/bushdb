@@ -37,7 +37,11 @@ module Bushdb
         end
         # Write key-value to the database.
         leaf_path : Path = branch_path / "leaf.txt"
-        File.write(leaf_path, "test 2")
+        if File.file?(leaf_path)
+          File.write(leaf_path, "test 2")
+        else
+          File.write(leaf_path, "test 2")
+        end
       end
     end
   end
