@@ -8,15 +8,15 @@ require "digest/md5"
 module Bushdb
   VERSION = "0.1.0"
 
-  # For splatting md5 sum.
+  # Type for splatting md5 sum.
   alias TupleStrSize32 = Tuple(String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String)
 
   # ...
   struct Store
     # Root directory for databases.
-    property root_dir : String = "BushDB"
-    # The name of the directory for the database.
-    property db_name : String = "store"
+    property root_store : String = "BushDB"
+    # Root directory for database.
+    property root_db : String = "store"
     # Directory permissions.
     # The linux-style permission mode can be specified, with a default of 777 (0o777).
     property dir_mode : Int32 = 777
@@ -27,12 +27,13 @@ module Bushdb
     # Add key-value pair(s) to the database.
     def set(data : Hash(String, String))
       data.each do |key, value|
-        # ...
+        # Key to md5 sum.
         md5 : String = Digest::MD5.hexdigest(key)
-        dir_path : Path = Path.new(@root_dir, *TupleStrSize32.from(md5.split(//)))
-        # ...
-        unless Dir.exists?(p)
-          Dir.mkdir_p(dir_path, mode = @dir_mode)
+        # The path of the branch to the database cell.
+        branch_path : Path = Path.new(@root_store, *TupleStrSize32.from(md5.split(//)))
+        # If the branch does not exist, need to create it.
+        unless Dir.exists?(branch_path)
+          Dir.mkdir_p(branch_path, mode = @dir_mode)
         end
         # ...
         file_path : Path = dir_path / "data.txt"
