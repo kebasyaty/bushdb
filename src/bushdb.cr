@@ -11,7 +11,7 @@ module Bushdb
   # Type for splatting md5 sum.
   alias TupleStrSize32 = Tuple(String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String)
 
-  # ...
+  # A structure for database management - Set, get, update and delete.
   struct Store
     # Root directory for databases.
     property root_store : String = "BushDB"
