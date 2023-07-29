@@ -25,7 +25,7 @@ module Bushdb
     property branch_mode : Int32 = 777
     # File permissions.
     # Default by 0o666 for read-write.
-    property leaf_mode : Int32 = 777
+    property leaf_mode : Int32 = 0o666
 
     # Add key-value pair(s) to the database.
     def set(data : Hash(String, String)) : UInt64
