@@ -44,6 +44,7 @@ module Bushdb
         leaf_path : Path = branch_path / "leaf.txt"
         unless File.file?(leaf_path)
           File.write(leaf_path, Tuple.new(key, value).to_json)
+          File.chmod(leaf_path, @leaf_mode)
           count += 1_u64
         end
       end
