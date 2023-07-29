@@ -1,9 +1,9 @@
 require "digest/md5"
+require "json"
 
 # bushDB is a fast key-value storage library that provides an ordered mapping from string keys to string values.
 # The library uses fractal-tree addressing.
-# The maximum capacity of the database 16**32=340282366920938463463374607431768211456 cells,
-# every cell can store one or more keys.
+# The maximum size of the database is 16**32=340282366920938463463374607431768211456 keys.
 # The value of any key can be obtained in 32 steps, thereby achieving high performance.
 module Bushdb
   VERSION = "0.1.0"
@@ -36,11 +36,10 @@ module Bushdb
           Dir.mkdir_p(branch_path, mode = @branch_mode)
         end
         # Write key-value to the database.
+        # If the key exists, it will be ignored.
         leaf_path : Path = branch_path / "leaf.txt"
-        if File.file?(leaf_path)
-          File.write(leaf_path, "test 2")
-        else
-          File.write(leaf_path, "test 2")
+        unless File.file?(leaf_path)
+          File.write(leaf_path, Tuple.new(key, value).to_json)
         end
       end
     end
