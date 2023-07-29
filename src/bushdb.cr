@@ -1,5 +1,6 @@
 require "digest/md5"
 require "json"
+require "file_utils"
 
 # bushDB is a fast key-value storage library that provides an ordered mapping from string keys to string values.
 # The library uses fractal-tree addressing.
@@ -47,6 +48,12 @@ module Bushdb
         end
       end
       return count
+    end
+
+    # Remove all the keys.
+    def clear : Nil
+      db_path : Path = Path.new(@root_store, @db_name)
+      FileUtils.rm_rf(db_path)
     end
   end
 end
