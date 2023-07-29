@@ -39,7 +39,7 @@ module Bushdb
         # If the key exists, it will be ignored.
         leaf_path : Path = branch_path / "leaf.txt"
         unless File.file?(leaf_path)
-          File.write(leaf_path, {key, value}.to_json)
+          File.write(leaf_path, Tuple.new(key, value).to_json)
         end
       end
     end
