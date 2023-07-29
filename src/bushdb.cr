@@ -25,7 +25,7 @@ module Bushdb
     property branch_mode : Int32 = 777
     # File permissions.
     # Default by 0o666 for read-write.
-    property leaf_mode : Int32 = 0o666
+    property leaf_mode : File::Permissions = File::Permissions.new(0o666)
 
     # Add key-value pair(s) to the database.
     def set(data : Hash(String, String)) : UInt64
@@ -43,8 +43,7 @@ module Bushdb
         # If the key exists, it will be ignored.
         leaf_path : Path = branch_path / "leaf.txt"
         unless File.file?(leaf_path)
-          File.write(leaf_path, Tuple.new(key, value).to_json)
-          File.chmod(leaf_path, @leaf_mode)
+          File.write(leaf_path, Tuple.new(key, value).to_json, perm = @leaf_mode)
           count += 1_u64
         end
       end
