@@ -14,8 +14,11 @@ describe Bushdb do
 
     describe "#set" do
       store : Bushdb::Store = create_test_store
-      it "add key-value pair to the database" do
+      it "add a non-existent key-value" do
         store.set(Hash{"key_name" => "Some text"}).should eq 1
+      end
+      it "add an existing key-value" do
+        store.set(Hash{"key_name" => "Some text"}).should eq 0
       end
     end
 
