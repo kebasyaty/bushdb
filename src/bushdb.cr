@@ -48,7 +48,18 @@ module Bushdb
           count += 1_u64
         end
       end
-      return count
+      count
+    end
+
+    # Get the value by key from the database.
+    def get(key : String) : (String | Nil)
+      # Key to md5 sum.
+      md5 : String = Digest::MD5.hexdigest(key)
+      leaf_path : Path = Path.new(@root_store, @db_name, *TupleStrSize32.from(md5.split(//)), "leaf.txt")
+      if File.file?(leaf_path)
+        return Tuple(String, String).from_json(File.read(leaf_path))[1]
+      end
+      nil
     end
 
     # Remove all the keys.
