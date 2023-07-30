@@ -7,18 +7,13 @@ on:
 
 jobs:
   build:
-    strategy:
-      fail-fast: false
-      matrix:
-        crystal: [1.9.0, latest]
     runs-on: ubuntu-latest
+    container:
+      image: crystallang/crystal:latest
+      options: --user root
     steps:
       - name: Download source
         uses: actions/checkout@v3
-      - name: Install Crystal
-        uses: crystal-lang/install-crystal@v1
-        with:
-          crystal: ${{ matrix.crystal }}
       - name: Install dependencies
         run: shards install
       - name: Check formatting
