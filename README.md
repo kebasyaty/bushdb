@@ -7,8 +7,9 @@ The library uses fractal-tree addressing.
 The maximum size of the database is 16\*\*32=340282366920938463463374607431768211456 keys.
 The value of any key can be obtained in 32 steps, thereby achieving high performance.
 
+[![CI](https://github.com/kebasyaty/bushdb/workflows/CI/badge.svg)](https://github.com/kebasyaty/bushdb/actions)
 [![Docs](https://img.shields.io/badge/docs-available-brightgreen.svg)](LINK-TO-YOUR-DOCUMENTATION)
-![Crystal min version](https://img.shields.io/badge/crystal-v1.9%2B-red)
+[![Crystal min version](https://img.shields.io/badge/crystal-v1.9%2B-red)](https://crystal-lang.org/)
 [![GitHub release](https://img.shields.io/github/release/kebasyaty/bushdb.svg)](https://github.com/kebasyaty/bushdb/releases)
 [![Github all releases](https://img.shields.io/github/downloads/Naereen/StrapDown.js/total.svg)](https://github.com/kebasyaty/bushdb/releases/)
 [![GitHub latest commit](https://badgen.net/github/last-commit/kebasyaty/bushdb)](https://github.com/kebasyaty/bushdb/commit/)
