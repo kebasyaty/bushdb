@@ -46,6 +46,13 @@ describe Bushdb do
       end
     end
 
+    describe "#update" do
+      store : Bushdb::Store = create_test_store
+      it "update a existent key-value" do
+        store.update(Hash{"key_name" => "New some text"}).should be_nil
+      end
+    end
+
     describe "#clear" do
       store : Bushdb::Store = create_test_store
       it "remove all the keys" do

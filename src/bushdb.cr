@@ -29,6 +29,7 @@ module Bushdb
 
     # Add key-value pair(s) to the database.
     # Support for atomic operations.
+    # If the key exists, it will be ignored.
     def set(data : Hash(String, String)) : UInt64
       count : UInt64 = 0
       data.each do |key, value|
@@ -60,6 +61,24 @@ module Bushdb
         return Tuple(String, String).from_json(File.read(leaf_path))[1]
       end
       nil
+    end
+
+    # Update key-value pair(s) in the database.
+    # Support for atomic operations.
+    def update(data : Hash(String, String)) : Void
+      data.each do |key, value|
+        # Key to md5 sum.
+        md5 : String = Digest::MD5.hexdigest(key)
+        # The path to the data file.
+        leaf_path : Path = Path.new(@root_store, @db_name, *TupleStrSize32.from(md5.split(//)), "leaf.txt")
+        # Write key-value to the database.
+        if File.file?(leaf_path)
+          File.write(leaf_path, Tuple.new(key, value).to_json, perm = @leaf_mode)
+        else
+          # If there is no data file, raise an exception.
+          raise Exception.new("Key #{key} is missing.")
+        end
+      end
     end
 
     # Remove all the keys.
