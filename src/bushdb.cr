@@ -28,6 +28,7 @@ module Bushdb
     property leaf_mode : File::Permissions = File::Permissions.new(0o666)
 
     # Add key-value pair(s) to the database.
+    # Support for atomic operations.
     def set(data : Hash(String, String)) : UInt64
       count : UInt64 = 0
       data.each do |key, value|
