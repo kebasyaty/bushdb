@@ -2,13 +2,15 @@ require "./spec_helper"
 
 describe Bushdb do
   describe "Bushdb::Store" do
-    it "create an instance of the store" do
-      store = Bushdb::Store.new
-    end
+    describe ".new" do
+      it "create an instance of the store" do
+        store = Bushdb::Store.new
+      end
 
-    it "create_test_store method" do
-      store : Bushdb::Store = create_test_store
-      store.should_not be_nil
+      it "create_test_store method" do
+        store : Bushdb::Store = create_test_store
+        store.should_not be_nil
+      end
     end
 
     describe "#set" do
