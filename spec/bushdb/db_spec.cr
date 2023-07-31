@@ -15,20 +15,38 @@ describe BushDB do
     describe "#set" do
       db : BushDB::DB = create_test_db
       it "add a non-existent key-value" do
-        db.set("key_name", "Some text").should be_nil
+        db.set("key name", "Some text").should be_nil
       end
       it "update the value of an existing key" do
-        db.set("key_name", "New some text").should be_nil
+        db.set("key name", "New some text").should be_nil
       end
     end
 
     describe "#get" do
       db : BushDB::DB = create_test_db
       it "get a value by an existing key" do
-        db.get("key_name").should eq "New some text"
+        db.get("key name").should eq "New some text"
       end
       it "get a value by an not existing key" do
-        db.get("key_name_no").should be_nil
+        db.get("key missing").should be_nil
+      end
+    end
+
+    describe "#delete" do
+      db : BushDB::DB = create_test_db
+      it "add keys" do
+        db.set("key 1", "Some text 1").should be_nil
+        db.set("key 2", "Some text 2").should be_nil
+      end
+      it "delete key 1" do
+        db.get("key 1").should eq "Some text 1"
+        db.delete("key 1").should be_nil
+        db.get("key 1").should be_nil
+      end
+      it "delete key 2" do
+        db.get("key 2").should eq "Some text 2"
+        db.delete("key 2").should be_nil
+        db.get("key 2").should be_nil
       end
     end
 
