@@ -34,7 +34,7 @@ describe BushDB do
 
     describe "#delete" do
       db : BushDB::DB = create_test_db
-      it "add keys" do
+      it "add keys for delete" do
         db.set("key 1", "Some text 1").should be_nil
         db.set("key 2", "Some text 2").should be_nil
       end
@@ -47,6 +47,13 @@ describe BushDB do
         db.get("key 2").should eq "Some text 2"
         db.delete("key 2").should be_nil
         db.get("key 2").should be_nil
+      end
+      it "delete a non-existent key" do
+        key : String = "key missing"
+        ex = expect_raises(BushDB::ErrorDB) do
+          db.delete(key)
+        end
+        ex.message.should eq %(The "#{key}" key is missing.)
       end
     end
 
