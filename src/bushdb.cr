@@ -4,8 +4,10 @@ require "file_utils"
 
 # bushDB is a fast key-value storage library that provides an ordered mapping from string keys to string values.
 # The library uses fractal-tree addressing.
-# The maximum size of the database is 16**32=340282366920938463463374607431768211456 keys.
+# The maximum size of the database is 16\*\*32=340282366920938463463374607431768211456 branches,
+# each branch can store one or more keys.
 # The value of any key can be obtained in 32 steps, thereby achieving high performance.
+# There is no need to iterate through all the keys in search of the desired value.
 module Bushdb
   VERSION = "0.1.0"
 
@@ -61,7 +63,7 @@ module Bushdb
       nil
     end
 
-    # Remove all the keys.
+    # Completely remove the directory of the database.
     def clear : Nil
       db_path : Path = Path.new(@root_store, @db_name)
       FileUtils.rm_rf(db_path)
