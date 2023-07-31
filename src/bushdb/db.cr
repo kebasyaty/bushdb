@@ -1,6 +1,7 @@
 require "digest/md5"
 require "json"
 require "file_utils"
+require "./bush_errors"
 
 # bushDB is a fast key-value storage library that provides an
 # ordered mapping from string keys to string values.
@@ -68,8 +69,10 @@ module BushDB
       # Delete the key
       if File.file?(leaf_path)
         data : Hash(String, String) = Hash(String, String).from_json(File.read(leaf_path))
-        raise Exception.new(%(The "#{key}" key is missing.)) if data.delete(key).nil?
+        raise ErrorDB.new(%(The "#{key}" key is missing.)) if data.delete(key).nil?
         File.write(leaf_path, data.to_json, perm = @leaf_mode)
+      else
+        raise ErrorDB.new(%(The "#{key}" key is missing.))
       end
     end
 
