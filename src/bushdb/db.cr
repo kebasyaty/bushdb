@@ -15,11 +15,11 @@ module BushDB
   # require "bushdb"
   #
   # db = BushDB::DB.new
-  # db.set("key name", "Some text") # => nil
-  # db.get("key name")              # => "Some text"
-  # db.delete("key name")           # => nil
-  # db.clear                        # => nil
-  # db.napalm                       # => nil
+  # db.set("key name", "Some text")
+  # db.get("key name") # => "Some text"
+  # db.delete("key name")
+  # db.clear
+  # db.napalm
   # ```
   struct DB
     # Root directory for databases.
@@ -42,7 +42,7 @@ module BushDB
     #
     # # set key-value
     # db = BushDB::DB.new
-    # db.set("key name", "Some text") # => nil
+    # db.set("key name", "Some text")
     # ```
     def set(key : String, value : String) : Void
       # Key to md5 sum.
@@ -96,8 +96,8 @@ module BushDB
     # # delete key-value
     # db = BushDB::DB.new
     # db.set("key name", "Some text")
-    # db.delete("key name") # => nil
-    # db.get("key name")    # => nil
+    # db.delete("key name")
+    # db.get("key name") # => nil
     # ```
     def delete(key : String) : Void
       # Key to md5 sum.
@@ -121,12 +121,11 @@ module BushDB
     #
     # # remove directory of database
     # db = BushDB::DB.new
-    # db.clear # => nil
+    # db.clear
     # ```
-    def clear : Nil
+    def clear : Void
       db_path : Path = Path.new(@root_store, @db_name)
       return FileUtils.rm_rf(db_path) if Dir.exists?(db_path)
-      nil
     end
 
     # Delete the root directory.
@@ -138,12 +137,11 @@ module BushDB
     #
     # # delete the root directory
     # db = BushDB::DB.new
-    # db.napalm # => nil
+    # db.napalm
     # ```
-    def napalm : Nil
+    def napalm : Void
       root_store_path : Path = Path.new(@root_store)
-      return FileUtils.rm_rf(root_store_path) if Dir.exists?(root_store_path)
-      nil
+      FileUtils.rm_rf(root_store_path) if Dir.exists?(root_store_path)
     end
   end
 end

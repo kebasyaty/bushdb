@@ -33,6 +33,21 @@ There is no need to iterate through all the keys in search of the desired value.
 
 ```crystal
 require "bushdb"
+
+# Create DB
+db : BushDB::DB = BushDB::DB.new
+
+# Set, get, delete
+db.set("key name", "Some text")
+db.get("key name") # => "Some text"
+db.delete("key name")
+db.get("key name") # => nil
+
+# Completely remove the directory of the database.
+db.clear
+
+# Delete the root directory.
+db.napalm
 ```
 
 ## License
