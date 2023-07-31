@@ -43,10 +43,10 @@ db.get("key name") # => "Some text"
 db.delete("key name")
 db.get("key name") # => nil
 
-# Completely remove the directory of the database.
+# Delete the database directory with all the keys in it.
 db.clear
 
-# Delete the root directory.
+# Delete the root directory with all databases in it.
 db.napalm
 ```
 

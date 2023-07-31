@@ -59,7 +59,7 @@ describe BushDB do
 
     describe "#clear" do
       db : BushDB::DB = create_test_db
-      it "completely remove the directory of the database" do
+      it "delete the database directory with all the keys in it" do
         db.clear.should be_nil
       end
       it "attempting to delete a non-existent database directory" do
@@ -73,7 +73,7 @@ describe BushDB do
 
     describe "#napalm" do
       db : BushDB::DB = create_test_db
-      it "delete the root directory" do
+      it "delete the root directory with all databases in it" do
         db.napalm.should be_nil
       end
       it "attempting to delete a non-existent database root" do

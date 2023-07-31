@@ -114,7 +114,7 @@ module BushDB
       end
     end
 
-    # Completely remove the directory of the database.
+    # Delete the database directory with all the keys in it.
     # Example:
     # ```
     # require "bushdb"
@@ -128,7 +128,7 @@ module BushDB
       return FileUtils.rm_rf(db_path) if Dir.exists?(db_path)
     end
 
-    # Delete the root directory.
+    # Delete the root directory with all databases in it.
     # Attention - Be careful, this destroy all databases.
     # The main purpose is tests.
     # Example:
