@@ -10,6 +10,17 @@ module BushDB
   alias TupleStrSize32 = Tuple(String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String)
 
   # A structure for database management - Set, get, update and delete.
+  # Example:
+  # ```
+  # require "bushdb"
+  #
+  # db = BushDB::DB.new
+  # db.set("key name", "Some text") # => nil
+  # db.get("key name")              # => "Some text"
+  # db.delete("key name")           # => nil
+  # db.clear                        # => nil
+  # db.napalm                       # => nil
+  # ```
   struct DB
     # Root directory for databases.
     # Defaule by = "BushDB"
