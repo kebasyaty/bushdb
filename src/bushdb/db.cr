@@ -3,7 +3,7 @@ require "json"
 require "file_utils"
 require "./bush_errors"
 
-# bushDB is a fast key-value storage library that provides an
+# **bushDB** is a fast key-value storage library that provides an
 # ordered mapping from string keys to string values.
 module BushDB
   # Type for splatting md5 sum.
@@ -25,6 +25,14 @@ module BushDB
     property leaf_mode : File::Permissions = File::Permissions.new(0o666)
 
     # Add or update key-value pair(s) to the database.
+    # Example:
+    # ```
+    # require "bushdb"
+    #
+    # # set key-value
+    # db = BushDB::DB.new
+    # db.set("key name", "Some text") # => nil
+    # ```
     def set(key : String, value : String) : Void
       # Key to md5 sum.
       md5 : String = Digest::MD5.hexdigest(key)
@@ -49,6 +57,15 @@ module BushDB
     end
 
     # Get the value by key from the database.
+    # Example:
+    # ```
+    # require "bushdb"
+    #
+    # # get key-value
+    # db = BushDB::DB.new
+    # db.set("key name", "Some text")
+    # db.get("key name") # => "Some text"
+    # ```
     def get(key : String) : (String | Nil)
       # Key to md5 sum.
       md5 : String = Digest::MD5.hexdigest(key)
@@ -61,6 +78,16 @@ module BushDB
     end
 
     # Delete the key-value from the database.
+    # Example:
+    # ```
+    # require "bushdb"
+    #
+    # # delete key-value
+    # db = BushDB::DB.new
+    # db.set("key name", "Some text")
+    # db.delete("key name") # => nil
+    # db.get("key name")    # => nil
+    # ```
     def delete(key : String) : Void
       # Key to md5 sum.
       md5 : String = Digest::MD5.hexdigest(key)
@@ -77,17 +104,35 @@ module BushDB
     end
 
     # Completely remove the directory of the database.
+    # Example:
+    # ```
+    # require "bushdb"
+    #
+    # # remove directory of database
+    # db = BushDB::DB.new
+    # db.clear # => nil
+    # ```
     def clear : Nil
       db_path : Path = Path.new(@root_store, @db_name)
-      FileUtils.rm_rf(db_path) if Dir.exists?(db_path)
+      return FileUtils.rm_rf(db_path) if Dir.exists?(db_path)
+      nil
     end
 
     # Delete the root directory.
     # Attention - Be careful, this destroy all databases.
     # The main purpose is tests.
+    # Example:
+    # ```
+    # require "bushdb"
+    #
+    # # delete the root directory
+    # db = BushDB::DB.new
+    # db.napalm # => nil
+    # ```
     def napalm : Nil
       root_store_path : Path = Path.new(@root_store)
-      FileUtils.rm_rf(root_store_path) if Dir.exists?(root_store_path)
+      return FileUtils.rm_rf(root_store_path) if Dir.exists?(root_store_path)
+      nil
     end
   end
 end
