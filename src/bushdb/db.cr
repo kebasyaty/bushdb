@@ -69,10 +69,10 @@ module BushDB
       # Delete the key
       if File.file?(leaf_path)
         data : Hash(String, String) = Hash(String, String).from_json(File.read(leaf_path))
-        raise ErrorDB.new(%(The "#{key}" key is missing.)) if data.delete(key).nil?
+        raise ErrorKeyMissing.new(key) if data.delete(key).nil?
         File.write(leaf_path, data.to_json, perm = @leaf_mode)
       else
-        raise ErrorDB.new(%(The "#{key}" key is missing.))
+        raise ErrorKeyMissing.new(key)
       end
     end
 

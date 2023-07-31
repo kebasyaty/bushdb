@@ -50,7 +50,7 @@ describe BushDB do
       end
       it "delete a non-existent key" do
         key : String = "key missing"
-        ex = expect_raises(BushDB::ErrorDB) do
+        ex = expect_raises(BushDB::ErrorKeyMissing) do
           db.delete(key)
         end
         ex.message.should eq %(The "#{key}" key is missing.)
