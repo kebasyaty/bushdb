@@ -62,6 +62,9 @@ describe BushDB do
       it "completely remove the directory of the database" do
         db.clear.should be_nil
       end
+      it "attempting to delete a non-existent database directory" do
+        db.clear.should be_nil
+      end
       it "check that there is no directory for the database" do
         db_path : Path = Path.new(db.root_store, db.db_name)
         Dir.exists?(db_path).should be_false
@@ -71,6 +74,9 @@ describe BushDB do
     describe "#napalm" do
       db : BushDB::DB = create_test_db
       it "delete the root directory" do
+        db.napalm.should be_nil
+      end
+      it "attempting to delete a non-existent database root" do
         db.napalm.should be_nil
       end
     end
