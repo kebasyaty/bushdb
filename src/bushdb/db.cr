@@ -10,8 +10,9 @@ module BushDB
   alias TupleStrSize32 = Tuple(String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String)
 
   # A structure for database management - Set, get, update and delete.
+  #
   # Example:
-  # ```
+  # ```crystal
   # require "bushdb"
   #
   # db = BushDB::DB.new
@@ -21,6 +22,7 @@ module BushDB
   # db.clear
   # db.napalm
   # ```
+  #
   struct DB
     # Root directory for databases.
     # Defaule by = "BushDB"
@@ -36,14 +38,16 @@ module BushDB
     property leaf_mode : File::Permissions = File::Permissions.new(0o666)
 
     # Add or update key-value pair(s) to the database.
+    #
     # Example:
-    # ```
+    # ```crystal
     # require "bushdb"
     #
     # # set key-value
     # db = BushDB::DB.new
     # db.set("key name", "Some text")
     # ```
+    #
     def set(key : String, value : String) : Void
       # Key to md5 sum.
       md5 : String = Digest::MD5.hexdigest(key)
@@ -68,8 +72,9 @@ module BushDB
     end
 
     # Get the value by key from the database.
+    #
     # Example:
-    # ```
+    # ```crystal
     # require "bushdb"
     #
     # # get key-value
@@ -77,6 +82,7 @@ module BushDB
     # db.set("key name", "Some text")
     # db.get("key name") # => "Some text"
     # ```
+    #
     def get(key : String) : (String | Nil)
       # Key to md5 sum.
       md5 : String = Digest::MD5.hexdigest(key)
@@ -89,8 +95,9 @@ module BushDB
     end
 
     # Delete the key-value from the database.
+    #
     # Example:
-    # ```
+    # ```crystal
     # require "bushdb"
     #
     # # delete key-value
@@ -99,6 +106,7 @@ module BushDB
     # db.delete("key name")
     # db.get("key name") # => nil
     # ```
+    #
     def delete(key : String) : Void
       # Key to md5 sum.
       md5 : String = Digest::MD5.hexdigest(key)
@@ -114,31 +122,36 @@ module BushDB
       end
     end
 
-    # Delete the database directory with all the keys in it.
+    # Delete the database.
+    # WARNING: Be careful, this will remove all keys.
+    #
     # Example:
-    # ```
+    # ```crystal
     # require "bushdb"
     #
     # # remove directory of database
     # db = BushDB::DB.new
     # db.clear
     # ```
+    #
     def clear : Void
       db_path : Path = Path.new(@root_store, @db_name)
       return FileUtils.rm_rf(db_path) if Dir.exists?(db_path)
     end
 
-    # Delete the root directory with all databases in it.
-    # Attention - Be careful, this destroy all databases.
-    # The main purpose is tests.
+    # Delete the root directory.
+    # WARNING: Be careful, this will remove all databases.
+    # NOTE: The main purpose is tests.
+    #
     # Example:
-    # ```
+    # ```crystal
     # require "bushdb"
     #
     # # delete the root directory
     # db = BushDB::DB.new
     # db.napalm
     # ```
+    #
     def napalm : Void
       root_store_path : Path = Path.new(@root_store)
       FileUtils.rm_rf(root_store_path) if Dir.exists?(root_store_path)
