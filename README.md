@@ -1,4 +1,4 @@
-[![Logo](https://github.com/kebasyaty/bushdb/raw/main/images/logo.svg "Logo")](https://github.com/kebasyaty/bushdb "Logo")
+[![Logo](https://github.com/kebasyaty/bushdb/raw/main/logo/logo.svg "Logo")](https://github.com/kebasyaty/bushdb "Logo")
 
 # bushDB
 
