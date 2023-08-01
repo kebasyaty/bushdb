@@ -13,9 +13,9 @@ There is no need to iterate through all the keys in search of the desired value.
 [![Docs](https://img.shields.io/badge/docs-available-brightgreen.svg)](LINK-TO-YOUR-DOCUMENTATION)
 [![Crystal](https://img.shields.io/badge/crystal-v1.9%2B-red)](https://crystal-lang.org/)
 [![GitHub release](https://img.shields.io/github/release/kebasyaty/bushdb.svg)](https://github.com/kebasyaty/bushdb/releases)
-[![Github all releases](https://img.shields.io/github/downloads/Naereen/StrapDown.js/total.svg)](https://github.com/kebasyaty/bushdb/releases/)
+[![Github all releases](https://img.shields.io/github/downloads/kebasyaty/bushdb/total.svg)](https://github.com/kebasyaty/bushdb/releases/)
 [![GitHub latest commit](https://badgen.net/github/last-commit/kebasyaty/bushdb)](https://github.com/kebasyaty/bushdb/commit/)
-[![GitHub license](https://badgen.net/github/license/Naereen/Strapdown.js)](https://github.com/kebasyaty/bushdb/blob/main/LICENSE)
+[![GitHub license](https://badgen.net/github/license/kebasyaty/bushdb)](https://github.com/kebasyaty/bushdb/blob/main/LICENSE)
 
 ## Installation
 
