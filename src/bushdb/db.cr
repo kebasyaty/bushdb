@@ -12,7 +12,7 @@ module BushDB
   # A structure for database management - Set, get, update and delete.
   #
   # Example:
-  # ```crystal
+  # ```
   # require "bushdb"
   #
   # db = BushDB::DB.new
@@ -40,7 +40,7 @@ module BushDB
     # Add or update key-value pair(s) to the database.
     #
     # Example:
-    # ```crystal
+    # ```
     # require "bushdb"
     #
     # # set key-value
@@ -74,7 +74,7 @@ module BushDB
     # Get the value by key from the database.
     #
     # Example:
-    # ```crystal
+    # ```
     # require "bushdb"
     #
     # # get key-value
@@ -97,7 +97,7 @@ module BushDB
     # Delete the key-value from the database.
     #
     # Example:
-    # ```crystal
+    # ```
     # require "bushdb"
     #
     # # delete key-value
@@ -126,7 +126,7 @@ module BushDB
     # WARNING: Be careful, this will remove all keys.
     #
     # Example:
-    # ```crystal
+    # ```
     # require "bushdb"
     #
     # # remove directory of database
@@ -144,7 +144,7 @@ module BushDB
     # NOTE: The main purpose is tests.
     #
     # Example:
-    # ```crystal
+    # ```
     # require "bushdb"
     #
     # # delete the root directory
