@@ -3,13 +3,11 @@ require "json"
 require "file_utils"
 require "./bush_errors"
 
-# **bushDB** is a fast key-value storage library that provides an
-# ordered mapping from string keys to string values.
 module BushDB
   # Type for splatting md5 sum.
   alias TupleStrSize32 = Tuple(String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String)
 
-  # A structure for database management - Set, get, update and delete.
+  # A structure for database management - Set, get, update, delete, clear and napalm.
   #
   # Example:
   # ```
@@ -26,7 +24,7 @@ module BushDB
   struct DB
     # Root directory for databases.
     # Defaule by = "BushDB"
-    property root_store : String = "BushDB"
+    property root_store : Path = Path.new("BushDB")
     # Database name.
     # Defaule by = "store"
     property db_name : String = "store"
