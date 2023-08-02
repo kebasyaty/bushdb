@@ -1,14 +1,14 @@
-<svg version="1.1" viewBox="0 0 329.94 54.612" xmlns="http://www.w3.org/2000/svg">
+<svg width="328.84" height="54.612" version="1.1" viewBox="0 0 330.84 54.944" xmlns="http://www.w3.org/2000/svg">
  <defs>
   <filter id="editing-jagged" x="0" y="0" width="1" height="1">
    <feTurbulence baseFrequency="0" result="turb" seed="1"/>
    <feDisplacementMap in="SourceGraphic" in2="turb"/>
   </filter>
  </defs>
- <rect transform="matrix(.43776 .89909 -.9354 .3536 0 0)" x="23.426" y="-32.095" width="25.899" height="27.704" fill="#fff" stroke-width="1.0676"/>
- <g transform="translate(.55)">
-  <rect x="4.267e-9" y="4.9626" width="328.84" height="44.923" rx="0" ry="5.9684" stroke="#333" stroke-width="1.1"/>
-  <g transform="translate(13.23 -13.952)">
+ <rect transform="matrix(.43776 .89909 -.9354 .3536 0 0)" x="22.668" y="-31.863" width="25.899" height="27.704" fill="#fff" stroke-width="1.0676"/>
+ <g transform="translate(1.0041 .31489)">
+  <rect x="1.9209e-9" y="4.3626" width="328.84" height="44.923" rx="0" ry="5.9684" stroke-width=".53322"/>
+  <g transform="translate(13.23 -14.552)">
    <path d="m193.03 26.678q15.274 0 15.274 14.557t-15.274 14.557h-12.614v-29.114zm-3.2602 6.9828v15.149h3.0878q5.8856 0 5.8856-6.3049v-2.5392q0-6.3049-5.8856-6.3049zm42.955-6.9828q2.2022 0 4.04 0.90909 1.8417 0.90909 2.9232 2.5588 1.0776 1.6497 1.0776 3.6834 0 5.3723-4.8668 6.7712v0.1685q5.5447 1.2696 5.5447 7.2806 0 2.2845-1.1207 4.04-1.1246 1.7555-3.0682 2.7312-1.9475 0.97179-4.2751 0.97179h-19.636v-29.114zm-10.031 6.3872v4.953h6.4342q0.93261 0 1.5439-0.65439 0.61521-0.65831 0.61521-1.6301v-0.4232q0-0.9326-0.6348-1.587-0.6348-0.65831-1.5243-0.65831zm0 10.964v4.9922h7.1121q0.92868 0 1.5439-0.65439 0.61521-0.65831 0.61521-1.6301v-0.4232q0-0.97571-0.61521-1.6301-0.6152-0.65439-1.5439-0.65439z" fill="#a00" stroke-width=".39185"/>
    <g transform="matrix(.62581 0 0 .62581 -24.167 -5.1202)" fill="#fff" filter="url(#editing-jagged)">
     <g transform="translate(178,96.695)" fill="#fff">
