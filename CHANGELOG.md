@@ -1,3 +1,7 @@
+#### v0.2.0 2023-08-2
+
+- Changed the root_store property type from String to Path
+
 #### v0.1.2 2023-08-1
 
 - Fixed constant VERSION
