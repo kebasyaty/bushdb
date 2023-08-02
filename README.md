@@ -2,7 +2,7 @@
 
 # bushDB
 
-bushDB is a fast key-value storage library that provides an ordered mapping from string keys to string values.
+**bushDB** is a fast key-value storage library that provides an ordered mapping from string keys to string values.
 The library uses fractal-tree addressing.
 The maximum size of the database is 16\*\*32=340282366920938463463374607431768211456 branches,
 each branch can store one or more keys.
