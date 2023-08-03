@@ -45,9 +45,11 @@ module BushDB
     #
     def set(key : String, value : String) : Void
       # Key to md5 sum.
-      md5 : String = Digest::MD5.hexdigest(key)
+      md5_str : String = Digest::MD5.hexdigest(key)
+      # Tuple for splatting md5 sum.
+      md5_tuple : BushDB::TupleStrSize32 = BushDB::TupleStrSize32.from(md5_str.split(//))
       # The path of the branch to the database cell.
-      branch_path : Path = Path.new(@root_store, @db_name, *BushDB::TupleStrSize32.from(md5.split(//)))
+      branch_path : Path = Path.new(@root_store, @db_name, *md5_tuple)
       # If the branch does not exist, need to create it.
       unless Dir.exists?(branch_path)
         Dir.mkdir_p(branch_path, mode = @branch_mode)
@@ -80,9 +82,11 @@ module BushDB
     #
     def get(key : String) : (String | Nil)
       # Key to md5 sum.
-      md5 : String = Digest::MD5.hexdigest(key)
+      md5_str : String = Digest::MD5.hexdigest(key)
+      # Tuple for splatting md5 sum.
+      md5_tuple : BushDB::TupleStrSize32 = BushDB::TupleStrSize32.from(md5_str.split(//))
       # The path to the database cell.
-      leaf_path : Path = Path.new(@root_store, @db_name, *BushDB::TupleStrSize32.from(md5.split(//)), "leaf.txt")
+      leaf_path : Path = Path.new(@root_store, @db_name, *md5_tuple, "leaf.txt")
       if File.file?(leaf_path)
         return Hash(String, String).from_json(File.read(leaf_path))[key]?
       end
@@ -104,9 +108,11 @@ module BushDB
     #
     def delete(key : String) : Void
       # Key to md5 sum.
-      md5 : String = Digest::MD5.hexdigest(key)
+      md5_str : String = Digest::MD5.hexdigest(key)
+      # Tuple for splatting md5 sum.
+      md5_tuple : BushDB::TupleStrSize32 = BushDB::TupleStrSize32.from(md5_str.split(//))
       # The path to the database cell.
-      leaf_path : Path = Path.new(@root_store, @db_name, *BushDB::TupleStrSize32.from(md5.split(//)), "leaf.txt")
+      leaf_path : Path = Path.new(@root_store, @db_name, *md5_tuple, "leaf.txt")
       # Delete the key
       if File.file?(leaf_path)
         data : Hash(String, String) = Hash(String, String).from_json(File.read(leaf_path))
