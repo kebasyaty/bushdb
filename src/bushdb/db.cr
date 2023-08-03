@@ -94,6 +94,7 @@ module BushDB
     end
 
     # Delete the key-value from the database.
+    # If the key is missing, an #ErrorKeyMissing exception is raised.
     #
     # Example:
     # ```
@@ -104,6 +105,7 @@ module BushDB
     # db.set("key name", "Some text")
     # db.delete("key name")
     # db.get("key name") # => nil
+    # db.delete("key name") => ErrorKeyMissing
     # ```
     #
     def delete(key : String) : Void
