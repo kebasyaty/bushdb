@@ -63,9 +63,12 @@ describe BushDB do
         db.clear.should be_nil
       end
       it "attempting to delete a non-existent database directory" do
-        db.clear.should be_nil
+        ex = expect_raises(BushDB::ErrorDirMissing) do
+          db.clear
+        end
+        ex.message.should eq %(The database directory "#{db.db_name}" is missing.)
       end
-      it "check that there is no directory for the database" do
+      it "make sure the directory for the database is missing" do
         db_path : Path = Path.new(db.root_store, db.db_name)
         Dir.exists?(db_path).should be_false
       end
@@ -76,8 +79,14 @@ describe BushDB do
       it "delete the root directory with all databases in it" do
         db.napalm.should be_nil
       end
-      it "attempting to delete a non-existent database root" do
-        db.napalm.should be_nil
+      it "attempting to delete a non-existent root directory" do
+        ex = expect_raises(BushDB::ErrorDirMissing) do
+          db.napalm
+        end
+        ex.message.should eq %(The root directory "#{db.root_store.to_s}" is missing.)
+      end
+      it "make sure the root directory is missing" do
+        Dir.exists?(db.root_store).should be_false
       end
     end
   end

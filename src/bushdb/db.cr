@@ -126,6 +126,7 @@ module BushDB
     end
 
     # Delete the database.
+    # If the directory is missing, an #ErrorDirMissing exception is raised.
     # WARNING: Be careful, this will remove all keys.
     #
     # Example:
@@ -140,9 +141,11 @@ module BushDB
     def clear : Void
       db_path : Path = Path.new(@root_store, @db_name)
       return FileUtils.rm_rf(db_path) if Dir.exists?(db_path)
+      raise BushDB::ErrorDirMissing.new(@db_name)
     end
 
     # Delete the root directory.
+    # If the directory is missing, an #ErrorDirMissing exception is raised.
     # WARNING: Be careful, this will remove all databases.
     # NOTE: The main purpose is tests.
     #
@@ -156,8 +159,8 @@ module BushDB
     # ```
     #
     def napalm : Void
-      root_store_path : Path = Path.new(@root_store)
-      FileUtils.rm_rf(root_store_path) if Dir.exists?(root_store_path)
+      return FileUtils.rm_rf(@root_store) if Dir.exists?(@root_store)
+      raise BushDB::ErrorDirMissing.new(@root_store)
     end
   end
 end
