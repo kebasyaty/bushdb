@@ -1,7 +1,7 @@
 require "digest/md5"
 require "json"
 require "file_utils"
-require "./bush_errors"
+require "./errors"
 
 module BushDB
   # Type for splatting md5 sum.
