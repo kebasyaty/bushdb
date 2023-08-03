@@ -4,9 +4,6 @@ require "file_utils"
 require "./errors"
 
 module BushDB
-  # Type for splatting md5 sum.
-  alias TupleStrSize32 = Tuple(String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String)
-
   # A structure for database management - Set, get, update, delete, clear and napalm.
   #
   # Example:
@@ -50,7 +47,7 @@ module BushDB
       # Key to md5 sum.
       md5 : String = Digest::MD5.hexdigest(key)
       # The path of the branch to the database cell.
-      branch_path : Path = Path.new(@root_store, @db_name, *TupleStrSize32.from(md5.split(//)))
+      branch_path : Path = Path.new(@root_store, @db_name, *BushDB::TupleStrSize32.from(md5.split(//)))
       # If the branch does not exist, need to create it.
       unless Dir.exists?(branch_path)
         Dir.mkdir_p(branch_path, mode = @branch_mode)
@@ -85,7 +82,7 @@ module BushDB
       # Key to md5 sum.
       md5 : String = Digest::MD5.hexdigest(key)
       # The path to the database cell.
-      leaf_path : Path = Path.new(@root_store, @db_name, *TupleStrSize32.from(md5.split(//)), "leaf.txt")
+      leaf_path : Path = Path.new(@root_store, @db_name, *BushDB::TupleStrSize32.from(md5.split(//)), "leaf.txt")
       if File.file?(leaf_path)
         return Hash(String, String).from_json(File.read(leaf_path))[key]?
       end
@@ -109,14 +106,14 @@ module BushDB
       # Key to md5 sum.
       md5 : String = Digest::MD5.hexdigest(key)
       # The path to the database cell.
-      leaf_path : Path = Path.new(@root_store, @db_name, *TupleStrSize32.from(md5.split(//)), "leaf.txt")
+      leaf_path : Path = Path.new(@root_store, @db_name, *BushDB::TupleStrSize32.from(md5.split(//)), "leaf.txt")
       # Delete the key
       if File.file?(leaf_path)
         data : Hash(String, String) = Hash(String, String).from_json(File.read(leaf_path))
-        raise ErrorKeyMissing.new(key) if data.delete(key).nil?
+        raise BushDB::ErrorKeyMissing.new(key) if data.delete(key).nil?
         File.write(leaf_path, data.to_json, perm = @leaf_mode)
       else
-        raise ErrorKeyMissing.new(key)
+        raise BushDB::ErrorKeyMissing.new(key)
       end
     end
 
