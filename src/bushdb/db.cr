@@ -136,6 +136,7 @@ module BushDB
     # # remove directory of database
     # db = BushDB::DB.new
     # db.clear
+    # db.clear => ErrorDirMissing
     # ```
     #
     def clear : Void
@@ -156,6 +157,7 @@ module BushDB
     # # delete the root directory
     # db = BushDB::DB.new
     # db.napalm
+    # db.napalm => ErrorDirMissing
     # ```
     #
     def napalm : Void
