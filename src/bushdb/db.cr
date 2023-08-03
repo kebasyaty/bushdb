@@ -1,12 +1,9 @@
 require "digest/md5"
 require "json"
 require "file_utils"
-require "./bush_errors"
+require "./errors"
 
 module BushDB
-  # Type for splatting md5 sum.
-  alias TupleStrSize32 = Tuple(String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String)
-
   # A structure for database management - Set, get, update, delete, clear and napalm.
   #
   # Example:
@@ -48,9 +45,11 @@ module BushDB
     #
     def set(key : String, value : String) : Void
       # Key to md5 sum.
-      md5 : String = Digest::MD5.hexdigest(key)
+      md5_str : String = Digest::MD5.hexdigest(key)
+      # Tuple for splatting md5 sum.
+      md5_tuple : BushDB::TupleStrSize32 = BushDB::TupleStrSize32.from(md5_str.split(//))
       # The path of the branch to the database cell.
-      branch_path : Path = Path.new(@root_store, @db_name, *TupleStrSize32.from(md5.split(//)))
+      branch_path : Path = Path.new(@root_store, @db_name, *md5_tuple)
       # If the branch does not exist, need to create it.
       unless Dir.exists?(branch_path)
         Dir.mkdir_p(branch_path, mode = @branch_mode)
@@ -83,9 +82,11 @@ module BushDB
     #
     def get(key : String) : (String | Nil)
       # Key to md5 sum.
-      md5 : String = Digest::MD5.hexdigest(key)
+      md5_str : String = Digest::MD5.hexdigest(key)
+      # Tuple for splatting md5 sum.
+      md5_tuple : BushDB::TupleStrSize32 = BushDB::TupleStrSize32.from(md5_str.split(//))
       # The path to the database cell.
-      leaf_path : Path = Path.new(@root_store, @db_name, *TupleStrSize32.from(md5.split(//)), "leaf.txt")
+      leaf_path : Path = Path.new(@root_store, @db_name, *md5_tuple, "leaf.txt")
       if File.file?(leaf_path)
         return Hash(String, String).from_json(File.read(leaf_path))[key]?
       end
@@ -93,6 +94,7 @@ module BushDB
     end
 
     # Delete the key-value from the database.
+    # If the key is missing, an #ErrorKeyMissing exception is raised.
     #
     # Example:
     # ```
@@ -103,24 +105,28 @@ module BushDB
     # db.set("key name", "Some text")
     # db.delete("key name")
     # db.get("key name") # => nil
+    # db.delete("key name") => ErrorKeyMissing
     # ```
     #
     def delete(key : String) : Void
       # Key to md5 sum.
-      md5 : String = Digest::MD5.hexdigest(key)
+      md5_str : String = Digest::MD5.hexdigest(key)
+      # Tuple for splatting md5 sum.
+      md5_tuple : BushDB::TupleStrSize32 = BushDB::TupleStrSize32.from(md5_str.split(//))
       # The path to the database cell.
-      leaf_path : Path = Path.new(@root_store, @db_name, *TupleStrSize32.from(md5.split(//)), "leaf.txt")
+      leaf_path : Path = Path.new(@root_store, @db_name, *md5_tuple, "leaf.txt")
       # Delete the key
       if File.file?(leaf_path)
         data : Hash(String, String) = Hash(String, String).from_json(File.read(leaf_path))
-        raise ErrorKeyMissing.new(key) if data.delete(key).nil?
+        raise BushDB::ErrorKeyMissing.new(key) if data.delete(key).nil?
         File.write(leaf_path, data.to_json, perm = @leaf_mode)
       else
-        raise ErrorKeyMissing.new(key)
+        raise BushDB::ErrorKeyMissing.new(key)
       end
     end
 
     # Delete the database.
+    # If the directory is missing, an #ErrorDirMissing exception is raised.
     # WARNING: Be careful, this will remove all keys.
     #
     # Example:
@@ -130,14 +136,17 @@ module BushDB
     # # remove directory of database
     # db = BushDB::DB.new
     # db.clear
+    # db.clear => ErrorDirMissing
     # ```
     #
     def clear : Void
       db_path : Path = Path.new(@root_store, @db_name)
       return FileUtils.rm_rf(db_path) if Dir.exists?(db_path)
+      raise BushDB::ErrorDirMissing.new(@db_name)
     end
 
     # Delete the root directory.
+    # If the directory is missing, an #ErrorDirMissing exception is raised.
     # WARNING: Be careful, this will remove all databases.
     # NOTE: The main purpose is tests.
     #
@@ -148,11 +157,12 @@ module BushDB
     # # delete the root directory
     # db = BushDB::DB.new
     # db.napalm
+    # db.napalm => ErrorDirMissing
     # ```
     #
     def napalm : Void
-      root_store_path : Path = Path.new(@root_store)
-      FileUtils.rm_rf(root_store_path) if Dir.exists?(root_store_path)
+      return FileUtils.rm_rf(@root_store) if Dir.exists?(@root_store)
+      raise BushDB::ErrorDirMissing.new(@root_store)
     end
   end
 end

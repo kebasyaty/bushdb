@@ -14,7 +14,7 @@
 <script type="text/javascript" src="../js/doc.js"></script>
 
   <meta name="repository-name" content="bushdb">
-  <title>BushDB::TupleStrSize32 - bushdb v0-dev</title>
+  <title>BushDB::ErrorDirMissing - bushdb v0-dev</title>
   <script type="text/javascript">
     CrystalDocs.base_path = "../";
   </script>
@@ -67,7 +67,7 @@
       
     </li>
   
-  <li class=" " data-id="bushdb/BushDB/ErrorDirMissing" data-name="bushdb::errordirmissing">
+  <li class=" current" data-id="bushdb/BushDB/ErrorDirMissing" data-name="bushdb::errordirmissing">
       <a href="../BushDB/ErrorDirMissing.html">ErrorDirMissing</a>
       
     </li>
@@ -77,7 +77,7 @@
       
     </li>
   
-  <li class=" current" data-id="bushdb/BushDB/TupleStrSize32" data-name="bushdb::tuplestrsize32">
+  <li class=" " data-id="bushdb/BushDB/TupleStrSize32" data-name="bushdb::tuplestrsize32">
       <a href="../BushDB/TupleStrSize32.html">TupleStrSize32</a>
       
     </li>
@@ -96,10 +96,12 @@
 <div class="main-content">
 <h1 class="type-name">
 
-  <span class="kind">alias</span> BushDB::TupleStrSize32
+  <span class="kind">class</span> BushDB::ErrorDirMissing
 
 </h1>
 
+
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="../BushDB/ErrorDirMissing.html">BushDB::ErrorDirMissing</a></li><li class="superclass">Exception</li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
 
 
 
@@ -113,19 +115,9 @@
     Overview
   </h2>
 
-  <p>Type for splatting md5 sum.</p>
+  <p>Error of missing directory.</p>
 
 
-
-  <h2>
-    <a id="alias-definition" class="anchor" href="#alias-definition">
-  <svg class="octicon-link" aria-hidden="true">
-    <use href="#octicon-link"/>
-  </svg>
-</a>
-    Alias Definition
-  </h2>
-  <code>{String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String}</code>
 
 
 
@@ -148,7 +140,7 @@
   </h2>
   
     
-      src\bushdb\globals.cr
+      src\bushdb\errors.cr
     
     <br/>
   
@@ -156,6 +148,23 @@
 
 
 
+
+  <h2>
+    <a id="constructors" class="anchor" href="#constructors">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Constructors
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#new%28directory%3AString%7CPath%2Ccause%3AException%7CNil%3Dnil%29-class-method" class="signature"><strong>.new</strong>(directory : String | Path, cause : Exception | Nil = <span class="n">nil</span>)</a>
+        
+      </li>
+    
+  </ul>
 
 
 
@@ -167,8 +176,62 @@
 
 <div class="methods-inherited">
   
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
 </div>
 
+
+  <h2>
+    <a id="constructor-detail" class="anchor" href="#constructor-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Constructor Detail
+  </h2>
+  
+    <div class="entry-detail" id="new(directory:String|Path,cause:Exception|Nil=nil)-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>(directory : String | Path, cause : Exception | Nil = <span class="n">nil</span>)
+
+        <a class="method-permalink" href="#new%28directory%3AString%7CPath%2Ccause%3AException%7CNil%3Dnil%29-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
 
 
 

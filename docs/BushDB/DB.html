@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Crystal Docs 1.8.2">
-<meta name="crystal_docs.project_version" content="v0">
+<meta name="crystal_docs.project_version" content="v0-dev">
 <meta name="crystal_docs.project_name" content="bushdb">
 
 
@@ -14,7 +14,7 @@
 <script type="text/javascript" src="../js/doc.js"></script>
 
   <meta name="repository-name" content="bushdb">
-  <title>BushDB::DB - bushdb v0</title>
+  <title>BushDB::DB - bushdb v0-dev</title>
   <script type="text/javascript">
     CrystalDocs.base_path = "../";
   </script>
@@ -45,7 +45,7 @@
       </h1>
 
       <span class="project-version">
-        v0
+        v0-dev
       </span>
     </div>
   </div>
@@ -64,6 +64,11 @@
   
   <li class=" current" data-id="bushdb/BushDB/DB" data-name="bushdb::db">
       <a href="../BushDB/DB.html">DB</a>
+      
+    </li>
+  
+  <li class=" " data-id="bushdb/BushDB/ErrorDirMissing" data-name="bushdb::errordirmissing">
+      <a href="../BushDB/ErrorDirMissing.html">ErrorDirMissing</a>
       
     </li>
   
@@ -144,9 +149,7 @@ db.napalm</code></pre>
   </h2>
   
     
-      <a href="https://github.com/kebasyaty/bushdb/blob/6494d63540eee27222af3b70c9df04abe5c1d6b1/src\bushdb\db.cr#L24" target="_blank">
-        src\bushdb\db.cr
-      </a>
+      src\bushdb\db.cr
     
     <br/>
   
@@ -343,8 +346,6 @@ db.napalm</code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/bushdb/blob/6494d63540eee27222af3b70c9df04abe5c1d6b1/src\bushdb\db.cr#L24" target="_blank">View source</a>]
-        
       </div>
     </div>
   
@@ -379,8 +380,6 @@ The linux-style permission mode can be specified, with a default of 777 (0o777).
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/bushdb/blob/6494d63540eee27222af3b70c9df04abe5c1d6b1/src\bushdb\db.cr#L33" target="_blank">View source</a>]
-        
       </div>
     </div>
   
@@ -401,8 +400,6 @@ The linux-style permission mode can be specified, with a default of 777 (0o777).
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/bushdb/blob/6494d63540eee27222af3b70c9df04abe5c1d6b1/src\bushdb\db.cr#L33" target="_blank">View source</a>]
-        
       </div>
     </div>
   
@@ -416,20 +413,20 @@ The linux-style permission mode can be specified, with a default of 777 (0o777).
       
         <div class="doc">
           
-          <p>Delete the database.</p>
+          <p>Delete the database.
+If the directory is missing, an #ErrorDirMissing exception is raised.</p>
 <p><span class="flag yellow">WARNING</span>  Be careful, this will remove all keys.</p>
 <p>Example:</p>
 <pre><code class="language-crystal"><span class="k">require</span> <span class="s">&quot;bushdb&quot;</span>
 
 <span class="c"># remove directory of database</span>
 db <span class="o">=</span> <span class="t">BushDB</span><span class="t">::</span><span class="t">DB</span>.new
-db.clear</code></pre>
+db.clear
+db.clear <span class="o">=&gt;</span> <span class="t">ErrorDirMissing</span></code></pre>
         </div>
       
       <br/>
       <div>
-        
-          [<a href="https://github.com/kebasyaty/bushdb/blob/6494d63540eee27222af3b70c9df04abe5c1d6b1/src\bushdb\db.cr#L135" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -451,8 +448,6 @@ Defaule by = &quot;store&quot;</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/bushdb/blob/6494d63540eee27222af3b70c9df04abe5c1d6b1/src\bushdb\db.cr#L30" target="_blank">View source</a>]
-        
       </div>
     </div>
   
@@ -473,8 +468,6 @@ Defaule by = &quot;store&quot;</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/bushdb/blob/6494d63540eee27222af3b70c9df04abe5c1d6b1/src\bushdb\db.cr#L30" target="_blank">View source</a>]
-        
       </div>
     </div>
   
@@ -488,7 +481,8 @@ Defaule by = &quot;store&quot;</p>
       
         <div class="doc">
           
-          <p>Delete the key-value from the database.</p>
+          <p>Delete the key-value from the database.
+If the key is missing, an #ErrorKeyMissing exception is raised.</p>
 <p>Example:</p>
 <pre><code class="language-crystal"><span class="k">require</span> <span class="s">&quot;bushdb&quot;</span>
 
@@ -496,13 +490,12 @@ Defaule by = &quot;store&quot;</p>
 db <span class="o">=</span> <span class="t">BushDB</span><span class="t">::</span><span class="t">DB</span>.new
 db.set(<span class="s">&quot;key name&quot;</span>, <span class="s">&quot;Some text&quot;</span>)
 db.delete(<span class="s">&quot;key name&quot;</span>)
-db.get(<span class="s">&quot;key name&quot;</span>) <span class="c"># =&gt; nil</span></code></pre>
+db.get(<span class="s">&quot;key name&quot;</span>) <span class="c"># =&gt; nil</span>
+db.delete(<span class="s">&quot;key name&quot;</span>) <span class="o">=&gt;</span> <span class="t">ErrorKeyMissing</span></code></pre>
         </div>
       
       <br/>
       <div>
-        
-          [<a href="https://github.com/kebasyaty/bushdb/blob/6494d63540eee27222af3b70c9df04abe5c1d6b1/src\bushdb\db.cr#L108" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -530,8 +523,6 @@ db.get(<span class="s">&quot;key name&quot;</span>) <span class="c"># =&gt; &quo
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/bushdb/blob/6494d63540eee27222af3b70c9df04abe5c1d6b1/src\bushdb\db.cr#L84" target="_blank">View source</a>]
-        
       </div>
     </div>
   
@@ -545,8 +536,6 @@ db.get(<span class="s">&quot;key name&quot;</span>) <span class="c"># =&gt; &quo
       
       <br/>
       <div>
-        
-          [<a href="https://github.com/kebasyaty/bushdb/blob/6494d63540eee27222af3b70c9df04abe5c1d6b1/src\bushdb\db.cr#L24" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -568,8 +557,6 @@ Default by 0o666 for read-write.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/bushdb/blob/6494d63540eee27222af3b70c9df04abe5c1d6b1/src\bushdb\db.cr#L36" target="_blank">View source</a>]
-        
       </div>
     </div>
   
@@ -590,8 +577,6 @@ Default by 0o666 for read-write.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/bushdb/blob/6494d63540eee27222af3b70c9df04abe5c1d6b1/src\bushdb\db.cr#L36" target="_blank">View source</a>]
-        
       </div>
     </div>
   
@@ -605,7 +590,8 @@ Default by 0o666 for read-write.</p>
       
         <div class="doc">
           
-          <p>Delete the root directory.</p>
+          <p>Delete the root directory.
+If the directory is missing, an #ErrorDirMissing exception is raised.</p>
 <p><span class="flag yellow">WARNING</span>  Be careful, this will remove all databases.</p>
 <p><span class="flag purple">NOTE</span>  The main purpose is tests.</p>
 <p>Example:</p>
@@ -613,13 +599,12 @@ Default by 0o666 for read-write.</p>
 
 <span class="c"># delete the root directory</span>
 db <span class="o">=</span> <span class="t">BushDB</span><span class="t">::</span><span class="t">DB</span>.new
-db.napalm</code></pre>
+db.napalm
+db.napalm <span class="o">=&gt;</span> <span class="t">ErrorDirMissing</span></code></pre>
         </div>
       
       <br/>
       <div>
-        
-          [<a href="https://github.com/kebasyaty/bushdb/blob/6494d63540eee27222af3b70c9df04abe5c1d6b1/src\bushdb\db.cr#L153" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -641,8 +626,6 @@ Defaule by = &quot;BushDB&quot;</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/bushdb/blob/6494d63540eee27222af3b70c9df04abe5c1d6b1/src\bushdb\db.cr#L27" target="_blank">View source</a>]
-        
       </div>
     </div>
   
@@ -662,8 +645,6 @@ Defaule by = &quot;BushDB&quot;</p>
       
       <br/>
       <div>
-        
-          [<a href="https://github.com/kebasyaty/bushdb/blob/6494d63540eee27222af3b70c9df04abe5c1d6b1/src\bushdb\db.cr#L27" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -689,8 +670,6 @@ db.set(<span class="s">&quot;key name&quot;</span>, <span class="s">&quot;Some t
       
       <br/>
       <div>
-        
-          [<a href="https://github.com/kebasyaty/bushdb/blob/6494d63540eee27222af3b70c9df04abe5c1d6b1/src\bushdb\db.cr#L49" target="_blank">View source</a>]
         
       </div>
     </div>
