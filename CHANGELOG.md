@@ -1,3 +1,7 @@
+#### v0.4.0 2023-08-4
+
+- Added delete?, clear? and napalm? methods.
+
 #### v0.3.0 2023-08-3
 
 - Added ErrorDirMissing exception.
