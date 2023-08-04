@@ -125,6 +125,38 @@ module BushDB
       end
     end
 
+    # Delete the key-value from the database.
+    # Returns false if the key is missing.
+    #
+    # Example:
+    # ```
+    # require "bushdb"
+    #
+    # # delete key-value
+    # db = BushDB::DB.new
+    # db.set("key name", "Some text")
+    # db.delete?("key name") # => true
+    # db.get("key name")     # => nil
+    # db.delete?("key name") # => false
+    # ```
+    #
+    def delete?(key : String) : Bool
+      # Key to md5 sum.
+      md5_str : String = Digest::MD5.hexdigest(key)
+      # Tuple for splatting md5 sum.
+      md5_tuple : BushDB::TupleStrSize32 = BushDB::TupleStrSize32.from(md5_str.split(//))
+      # The path to the database cell.
+      leaf_path : Path = Path.new(@root_store, @db_name, *md5_tuple, "leaf.txt")
+      # Delete the key
+      if File.file?(leaf_path)
+        data : Hash(String, String) = Hash(String, String).from_json(File.read(leaf_path))
+        return false if data.delete(key).nil?
+        File.write(leaf_path, data.to_json, perm = @leaf_mode)
+        return true
+      end
+      false
+    end
+
     # Delete the database.
     # If the directory is missing, an #ErrorDirMissing exception is raised.
     # WARNING: Be careful, this will remove all keys.
