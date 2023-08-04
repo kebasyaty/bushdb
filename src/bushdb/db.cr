@@ -223,8 +223,8 @@ module BushDB
     # require "bushdb"
     #
     # db = BushDB::DB.new
-    # db.napalm # => true
-    # db.napalm # => false
+    # db.napalm? # => true
+    # db.napalm? # => false
     # ```
     #
     def napalm? : Bool
