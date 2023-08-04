@@ -99,7 +99,7 @@ describe BushDB do
     describe "#clear?" do
       db : BushDB::DB = create_test_db
       it "delete the database directory with all the keys in it" do
-        db.set("key name", "Some text")
+        db.set("key name", "Some text") # For create a root directory and a database.
         db.clear?.should be_true
       end
       it "attempting to delete a non-existent database directory" do
@@ -121,6 +121,20 @@ describe BushDB do
           db.napalm
         end
         ex.message.should eq %(The root directory "#{db.root_store.to_s}" is missing.)
+      end
+      it "make sure the root directory is missing" do
+        Dir.exists?(db.root_store).should be_false
+      end
+    end
+
+    describe "#napalm?" do
+      db : BushDB::DB = create_test_db
+      it "delete the root directory with all databases in it" do
+        db.set("key name", "Some text") # For create a root directory and a database.
+        db.napalm?.should be_true
+      end
+      it "attempting to delete a non-existent root directory" do
+        db.napalm?.should be_false
       end
       it "make sure the root directory is missing" do
         Dir.exists?(db.root_store).should be_false

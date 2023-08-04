@@ -101,8 +101,8 @@ module BushDB
     # db = BushDB::DB.new
     # db.set("key name", "Some text")
     # db.delete("key name")
-    # db.get("key name") # => nil
-    # db.delete("key name") => ErrorKeyMissing
+    # db.get("key name")    # => nil
+    # db.delete("key name") # => ErrorKeyMissing
     # ```
     #
     def delete(key : String) : Void
@@ -163,7 +163,7 @@ module BushDB
     #
     # db = BushDB::DB.new
     # db.clear
-    # db.clear => ErrorDirMissing
+    # db.clear # => ErrorDirMissing
     # ```
     #
     def clear : Void
@@ -205,12 +205,34 @@ module BushDB
     #
     # db = BushDB::DB.new
     # db.napalm
-    # db.napalm => ErrorDirMissing
+    # db.napalm # => ErrorDirMissing
     # ```
     #
     def napalm : Void
       return FileUtils.rm_rf(@root_store) if Dir.exists?(@root_store)
       raise BushDB::ErrorDirMissing.new(@root_store)
+    end
+
+    # Delete the root directory.
+    # Returns false if the root directory is missing.
+    # WARNING: Be careful, this will remove all databases.
+    # NOTE: The main purpose is tests.
+    #
+    # Example:
+    # ```
+    # require "bushdb"
+    #
+    # db = BushDB::DB.new
+    # db.napalm # => true
+    # db.napalm # => false
+    # ```
+    #
+    def napalm? : Bool
+      if Dir.exists?(@root_store)
+        FileUtils.rm_rf(@root_store)
+        return true
+      end
+      false
     end
   end
 end
