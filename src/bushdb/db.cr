@@ -38,7 +38,6 @@ module BushDB
     # ```
     # require "bushdb"
     #
-    # # set key-value
     # db = BushDB::DB.new
     # db.set("key name", "Some text")
     # ```
@@ -74,7 +73,6 @@ module BushDB
     # ```
     # require "bushdb"
     #
-    # # get key-value
     # db = BushDB::DB.new
     # db.set("key name", "Some text")
     # db.get("key name") # => "Some text"
@@ -100,7 +98,6 @@ module BushDB
     # ```
     # require "bushdb"
     #
-    # # delete key-value
     # db = BushDB::DB.new
     # db.set("key name", "Some text")
     # db.delete("key name")
@@ -132,7 +129,6 @@ module BushDB
     # ```
     # require "bushdb"
     #
-    # # delete key-value
     # db = BushDB::DB.new
     # db.set("key name", "Some text")
     # db.delete?("key name") # => true
@@ -157,7 +153,7 @@ module BushDB
       false
     end
 
-    # Delete the database.
+    # Remove directory of database.
     # If the directory is missing, an #ErrorDirMissing exception is raised.
     # WARNING: Be careful, this will remove all keys.
     #
@@ -165,7 +161,6 @@ module BushDB
     # ```
     # require "bushdb"
     #
-    # # remove directory of database
     # db = BushDB::DB.new
     # db.clear
     # db.clear => ErrorDirMissing
@@ -186,7 +181,6 @@ module BushDB
     # ```
     # require "bushdb"
     #
-    # # delete the root directory
     # db = BushDB::DB.new
     # db.napalm
     # db.napalm => ErrorDirMissing
