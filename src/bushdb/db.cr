@@ -172,6 +172,28 @@ module BushDB
       raise BushDB::ErrorDirMissing.new(@db_name)
     end
 
+    # Remove directory of database.
+    # Returns false if the directory is missing.
+    # WARNING: Be careful, this will remove all keys.
+    #
+    # Example:
+    # ```
+    # require "bushdb"
+    #
+    # db = BushDB::DB.new
+    # db.clear? # => true
+    # db.clear? # => false
+    # ```
+    #
+    def clear? : Bool
+      db_path : Path = Path.new(@root_store, @db_name)
+      if Dir.exists?(db_path)
+        FileUtils.rm_rf(db_path)
+        return true
+      end
+      false
+    end
+
     # Delete the root directory.
     # If the directory is missing, an #ErrorDirMissing exception is raised.
     # WARNING: Be careful, this will remove all databases.
