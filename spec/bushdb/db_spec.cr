@@ -57,6 +57,28 @@ describe BushDB do
       end
     end
 
+    describe "#delete?" do
+      db : BushDB::DB = create_test_db
+      it "add keys for delete" do
+        db.set("key 1", "Some text 1").should be_nil
+        db.set("key 2", "Some text 2").should be_nil
+      end
+      it "delete key 1" do
+        db.get("key 1").should eq "Some text 1"
+        db.delete?("key 1").should be_true
+        db.get("key 1").should be_nil
+      end
+      it "delete key 2" do
+        db.get("key 2").should eq "Some text 2"
+        db.delete?("key 2").should be_true
+        db.get("key 2").should be_nil
+      end
+      it "delete a non-existent key" do
+        db.delete?("key 1").should be_false
+        db.delete?("key 2").should be_false
+      end
+    end
+
     describe "#clear" do
       db : BushDB::DB = create_test_db
       it "delete the database directory with all the keys in it" do
@@ -74,6 +96,21 @@ describe BushDB do
       end
     end
 
+    describe "#clear?" do
+      db : BushDB::DB = create_test_db
+      it "delete the database directory with all the keys in it" do
+        db.set("key name", "Some text") # For create a root directory and a database.
+        db.clear?.should be_true
+      end
+      it "attempting to delete a non-existent database directory" do
+        db.clear?.should be_false
+      end
+      it "make sure the directory for the database is missing" do
+        db_path : Path = Path.new(db.root_store, db.db_name)
+        Dir.exists?(db_path).should be_false
+      end
+    end
+
     describe "#napalm" do
       db : BushDB::DB = create_test_db
       it "delete the root directory with all databases in it" do
@@ -84,6 +121,20 @@ describe BushDB do
           db.napalm
         end
         ex.message.should eq %(The root directory "#{db.root_store.to_s}" is missing.)
+      end
+      it "make sure the root directory is missing" do
+        Dir.exists?(db.root_store).should be_false
+      end
+    end
+
+    describe "#napalm?" do
+      db : BushDB::DB = create_test_db
+      it "delete the root directory with all databases in it" do
+        db.set("key name", "Some text") # For create a root directory and a database.
+        db.napalm?.should be_true
+      end
+      it "attempting to delete a non-existent root directory" do
+        db.napalm?.should be_false
       end
       it "make sure the root directory is missing" do
         Dir.exists?(db.root_store).should be_false
