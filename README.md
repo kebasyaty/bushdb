@@ -37,7 +37,11 @@ db : BushDB::DB = BushDB::DB.new
 # Set, get, delete
 db.set("key name", "Some text")
 db.get("key name") # => "Some text"
+#
 db.delete("key name")
+# or
+db.delete?("key name") # => true
+#
 db.get("key name") # => nil
 
 # Delete the database directory with all the keys in it.
