@@ -42,9 +42,13 @@ db.get("key name") # => nil
 
 # Delete the database directory with all the keys in it.
 db.clear
+# or
+db.clear? # => true
 
 # Delete the root directory with all databases in it.
 db.napalm
+# or
+db.napalm? # => true
 ```
 
 ## License
