@@ -139,7 +139,11 @@ db : <span class="t">BushDB</span><span class="t">::</span><span class="t">DB</s
 <span class="c"># Set, get, delete</span>
 db.set(<span class="s">&quot;key name&quot;</span>, <span class="s">&quot;Some text&quot;</span>)
 db.get(<span class="s">&quot;key name&quot;</span>) <span class="c"># =&gt; &quot;Some text&quot;</span>
+<span class="c">#</span>
 db.delete(<span class="s">&quot;key name&quot;</span>)
+<span class="c"># or</span>
+db.delete?(<span class="s">&quot;key name&quot;</span>) <span class="c"># =&gt; true</span>
+<span class="c">#</span>
 db.get(<span class="s">&quot;key name&quot;</span>) <span class="c"># =&gt; nil</span>
 
 <span class="c"># Delete the database directory with all the keys in it.</span>
