@@ -42,6 +42,7 @@ db.delete("key name")
 # or
 db.delete?("key name") # => true
 #
+# If the key has been deleted.
 db.get("key name") # => nil
 
 # Delete the database directory with all the keys in it.
