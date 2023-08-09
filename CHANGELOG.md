@@ -1,3 +1,7 @@
+#### v0.4.3 2023-08-10
+
+- Updated tests.
+
 #### v0.4.2 2023-08-9
 
 - Changed variable db_path initialization.
