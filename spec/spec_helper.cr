@@ -10,6 +10,7 @@ def create_test_db : BushDB::DB
   db
 end
 
+# Testig the creation of an instance.
 describe ".new" do
   it "create an instance of the DB" do
     db = BushDB::DB.new
@@ -25,4 +26,5 @@ describe ".new" do
   end
 end
 
+# Create a database instance for all tests.
 DB_TEST = create_test_db
