@@ -167,7 +167,7 @@ module BushDB
     # ```
     #
     def clear : Void
-      db_path : Path = Path.new(@root_store, @db_name)
+      db_path : Path = @root_store / @db_name
       return FileUtils.rm_rf(db_path) if Dir.exists?(db_path)
       raise BushDB::ErrorDirMissing.new(@db_name)
     end
@@ -186,7 +186,7 @@ module BushDB
     # ```
     #
     def clear? : Bool
-      db_path : Path = Path.new(@root_store, @db_name)
+      db_path : Path = @root_store / @db_name
       if Dir.exists?(db_path)
         FileUtils.rm_rf(db_path)
         return true
