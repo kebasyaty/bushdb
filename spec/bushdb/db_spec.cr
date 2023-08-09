@@ -91,7 +91,7 @@ describe BushDB do
         ex.message.should eq %(The database directory "#{db.db_name}" is missing.)
       end
       it "make sure the directory for the database is missing" do
-        db_path : Path = Path.new(db.root_store, db.db_name)
+        db_path : Path = db.root_store / db.db_name
         Dir.exists?(db_path).should be_false
       end
     end
@@ -106,7 +106,7 @@ describe BushDB do
         db.clear?.should be_false
       end
       it "make sure the directory for the database is missing" do
-        db_path : Path = Path.new(db.root_store, db.db_name)
+        db_path : Path = db.root_store / db.db_name
         Dir.exists?(db_path).should be_false
       end
     end
