@@ -7,8 +7,9 @@ authors:
 license: MIT
 
 description: |
-  A fast key-value storage library. The library uses fractal-tree addressing.
+  "A fast key-value storage library. The library uses fractal-tree addressing."
 
-github: https://github.com/kebasyaty/bushdb
-homepage: https://github.com/kebasyaty/bushdb
+github: "https://github.com/kebasyaty/bushdb"
+homepage: "https://github.com/kebasyaty/bushdb"
+repository: "https://github.com/kebasyaty/bushdb"
 documentation: "https://kebasyaty.github.io/bushdb/"
