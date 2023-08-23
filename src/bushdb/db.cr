@@ -115,10 +115,10 @@ module BushDB
       # Delete the key
       if File.file?(leaf_path)
         data : Hash(String, String) = Hash(String, String).from_json(File.read(leaf_path))
-        raise BushDB::ErrorKeyMissing.new(key) if data.delete(key).nil?
+        raise BushDB::KeyMissing.new(key) if data.delete(key).nil?
         File.write(leaf_path, data.to_json, perm = @leaf_mode)
       else
-        raise BushDB::ErrorKeyMissing.new(key)
+        raise BushDB::KeyMissing.new(key)
       end
     end
 
@@ -169,7 +169,7 @@ module BushDB
     def clear : Void
       db_path : Path = @root_store / @db_name
       return FileUtils.rm_rf(db_path) if Dir.exists?(db_path)
-      raise BushDB::ErrorDirMissing.new(@db_name)
+      raise BushDB::DirMissing.new(@db_name)
     end
 
     # Remove directory of database.
@@ -210,7 +210,7 @@ module BushDB
     #
     def napalm : Void
       return FileUtils.rm_rf(@root_store) if Dir.exists?(@root_store)
-      raise BushDB::ErrorDirMissing.new(@root_store)
+      raise BushDB::DirMissing.new(@root_store)
     end
 
     # Delete the root directory.

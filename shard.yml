@@ -1,5 +1,5 @@
 name: bushdb
-version: 0.4.3
+version: 0.5.0
 crystal: ">= 1.9.0, < 2.0"
 
 authors:
@@ -7,6 +7,9 @@ authors:
 license: MIT
 
 description: |
-  A fast key-value storage library. The library uses fractal-tree addressing.
+  "A fast key-value storage library. The library uses fractal-tree addressing."
 
-github: https://github.com/kebasyaty/bushdb
+github: "https://github.com/kebasyaty/bushdb"
+homepage: "https://github.com/kebasyaty/bushdb"
+repository: "https://github.com/kebasyaty/bushdb"
+documentation: "https://kebasyaty.github.io/bushdb/"

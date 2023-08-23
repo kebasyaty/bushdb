@@ -1,14 +1,16 @@
 # Custom exceptions for BushDB.
 module BushDB
+  class BushDBException < Exception; end
+
   # Error of missing key.
-  class ErrorKeyMissing < Exception
+  class KeyMissing < BushDBException
     def initialize(key : String, @cause : Exception | Nil = nil)
       @message = %(The "#{key}" key is missing.)
     end
   end
 
   # Error of missing directory.
-  class ErrorDirMissing < Exception
+  class DirMissing < BushDBException
     def initialize(directory : String | Path, @cause : Exception | Nil = nil)
       if directory.is_a?(String)
         @message = %(The database directory "#{directory}" is missing.)

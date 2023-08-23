@@ -37,7 +37,7 @@ describe BushDB do
       end
       it "delete a non-existent key" do
         key : String = "key missing"
-        ex = expect_raises(BushDB::ErrorKeyMissing) do
+        ex = expect_raises(BushDB::KeyMissing) do
           DB_TEST.delete(key)
         end
         ex.message.should eq %(The "#{key}" key is missing.)
@@ -70,7 +70,7 @@ describe BushDB do
         DB_TEST.clear.should be_nil
       end
       it "attempting to delete a non-existent database directory" do
-        ex = expect_raises(BushDB::ErrorDirMissing) do
+        ex = expect_raises(BushDB::DirMissing) do
           DB_TEST.clear
         end
         ex.message.should eq %(The database directory "#{DB_TEST.db_name}" is missing.)
@@ -100,7 +100,7 @@ describe BushDB do
         DB_TEST.napalm.should be_nil
       end
       it "attempting to delete a non-existent root directory" do
-        ex = expect_raises(BushDB::ErrorDirMissing) do
+        ex = expect_raises(BushDB::DirMissing) do
           DB_TEST.napalm
         end
         ex.message.should eq %(The root directory "#{DB_TEST.root_store.to_s}" is missing.)
