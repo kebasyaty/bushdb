@@ -10,3 +10,4 @@ description: |
   A fast key-value storage library. The library uses fractal-tree addressing.
 
 github: https://github.com/kebasyaty/bushdb
+documentation: "https://kebasyaty.github.io/bushdb/"
