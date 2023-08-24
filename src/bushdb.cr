@@ -7,5 +7,5 @@ require "./bushdb/*"
 # The value of any key can be obtained in 32 steps, thereby achieving high performance.
 # There is no need to iterate through all the keys in search of the desired value.
 module BushDB
-  VERSION = "0.5.0"
+  VERSION = "0.5.1"
 end
