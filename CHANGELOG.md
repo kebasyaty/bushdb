@@ -1,3 +1,7 @@
+#### v0.5.3 2023-08-25
+
+- Update doc test.
+
 #### v0.5.0 2023-08-23
 
 - Renamed exception classes.
