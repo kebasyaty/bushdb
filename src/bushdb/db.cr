@@ -75,7 +75,8 @@ module BushDB
     #
     # db = BushDB::DB.new
     # db.set("key name", "Some text")
-    # db.get("key name") # => "Some text"
+    # db.get("key name")    # => "Some text"
+    # db.get("key missing") # => nil
     # ```
     #
     def get(key : String) : String?
