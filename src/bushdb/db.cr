@@ -75,10 +75,11 @@ module BushDB
     #
     # db = BushDB::DB.new
     # db.set("key name", "Some text")
-    # db.get("key name") # => "Some text"
+    # db.get("key name")    # => "Some text"
+    # db.get("key missing") # => nil
     # ```
     #
-    def get(key : String) : (String | Nil)
+    def get(key : String) : String?
       # Key to md5 sum.
       md5_str : String = Digest::MD5.hexdigest(key)
       # Tuple for splatting md5 sum.

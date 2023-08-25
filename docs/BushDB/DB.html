@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Crystal Docs 1.8.2">
-<meta name="crystal_docs.project_version" content="v0-dev">
+<meta name="crystal_docs.project_version" content="v0">
 <meta name="crystal_docs.project_name" content="bushdb">
 
 
@@ -14,7 +14,7 @@
 <script type="text/javascript" src="../js/doc.js"></script>
 
   <meta name="repository-name" content="bushdb">
-  <title>BushDB::DB - bushdb v0-dev</title>
+  <title>BushDB::DB - bushdb v0</title>
   <script type="text/javascript">
     CrystalDocs.base_path = "../";
   </script>
@@ -45,7 +45,7 @@
       </h1>
 
       <span class="project-version">
-        v0-dev
+        v0
       </span>
     </div>
   </div>
@@ -154,7 +154,9 @@ db.napalm</code></pre>
   </h2>
   
     
-      src\bushdb\db.cr
+      <a href="https://github.com/kebasyaty/bushdb/blob/93e7237c9763c4c6b0ed8ca08e78dcfa1a70e810/src\bushdb\db.cr#L21" target="_blank">
+        src\bushdb\db.cr
+      </a>
     
     <br/>
   
@@ -372,6 +374,8 @@ db.napalm</code></pre>
       <br/>
       <div>
         
+          [<a href="https://github.com/kebasyaty/bushdb/blob/93e7237c9763c4c6b0ed8ca08e78dcfa1a70e810/src\bushdb\db.cr#L21" target="_blank">View source</a>]
+        
       </div>
     </div>
   
@@ -406,6 +410,8 @@ The linux-style permission mode can be specified, with a default of 777 (0o777).
       <br/>
       <div>
         
+          [<a href="https://github.com/kebasyaty/bushdb/blob/93e7237c9763c4c6b0ed8ca08e78dcfa1a70e810/src\bushdb\db.cr#L30" target="_blank">View source</a>]
+        
       </div>
     </div>
   
@@ -425,6 +431,8 @@ The linux-style permission mode can be specified, with a default of 777 (0o777).
       
       <br/>
       <div>
+        
+          [<a href="https://github.com/kebasyaty/bushdb/blob/93e7237c9763c4c6b0ed8ca08e78dcfa1a70e810/src\bushdb\db.cr#L30" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -453,6 +461,8 @@ db.clear <span class="c"># =&gt; ErrorDirMissing</span></code></pre>
       <br/>
       <div>
         
+          [<a href="https://github.com/kebasyaty/bushdb/blob/93e7237c9763c4c6b0ed8ca08e78dcfa1a70e810/src\bushdb\db.cr#L170" target="_blank">View source</a>]
+        
       </div>
     </div>
   
@@ -480,6 +490,8 @@ db.clear? <span class="c"># =&gt; false</span></code></pre>
       <br/>
       <div>
         
+          [<a href="https://github.com/kebasyaty/bushdb/blob/93e7237c9763c4c6b0ed8ca08e78dcfa1a70e810/src\bushdb\db.cr#L189" target="_blank">View source</a>]
+        
       </div>
     </div>
   
@@ -500,6 +512,8 @@ Defaule by = &quot;store&quot;</p>
       <br/>
       <div>
         
+          [<a href="https://github.com/kebasyaty/bushdb/blob/93e7237c9763c4c6b0ed8ca08e78dcfa1a70e810/src\bushdb\db.cr#L27" target="_blank">View source</a>]
+        
       </div>
     </div>
   
@@ -519,6 +533,8 @@ Defaule by = &quot;store&quot;</p>
       
       <br/>
       <div>
+        
+          [<a href="https://github.com/kebasyaty/bushdb/blob/93e7237c9763c4c6b0ed8ca08e78dcfa1a70e810/src\bushdb\db.cr#L27" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -548,6 +564,8 @@ db.delete(<span class="s">&quot;key name&quot;</span>) <span class="c"># =&gt; E
       <br/>
       <div>
         
+          [<a href="https://github.com/kebasyaty/bushdb/blob/93e7237c9763c4c6b0ed8ca08e78dcfa1a70e810/src\bushdb\db.cr#L109" target="_blank">View source</a>]
+        
       </div>
     </div>
   
@@ -576,6 +594,8 @@ db.delete?(<span class="s">&quot;key name&quot;</span>) <span class="c"># =&gt; 
       <br/>
       <div>
         
+          [<a href="https://github.com/kebasyaty/bushdb/blob/93e7237c9763c4c6b0ed8ca08e78dcfa1a70e810/src\bushdb\db.cr#L140" target="_blank">View source</a>]
+        
       </div>
     </div>
   
@@ -595,11 +615,14 @@ db.delete?(<span class="s">&quot;key name&quot;</span>) <span class="c"># =&gt; 
 
 db <span class="o">=</span> <span class="t">BushDB</span><span class="t">::</span><span class="t">DB</span>.new
 db.set(<span class="s">&quot;key name&quot;</span>, <span class="s">&quot;Some text&quot;</span>)
-db.get(<span class="s">&quot;key name&quot;</span>) <span class="c"># =&gt; &quot;Some text&quot;</span></code></pre>
+db.get(<span class="s">&quot;key name&quot;</span>)    <span class="c"># =&gt; &quot;Some text&quot;</span>
+db.get(<span class="s">&quot;key missing&quot;</span>) <span class="c"># =&gt; nil</span></code></pre>
         </div>
       
       <br/>
       <div>
+        
+          [<a href="https://github.com/kebasyaty/bushdb/blob/93e7237c9763c4c6b0ed8ca08e78dcfa1a70e810/src\bushdb\db.cr#L82" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -614,6 +637,8 @@ db.get(<span class="s">&quot;key name&quot;</span>) <span class="c"># =&gt; &quo
       
       <br/>
       <div>
+        
+          [<a href="https://github.com/kebasyaty/bushdb/blob/93e7237c9763c4c6b0ed8ca08e78dcfa1a70e810/src\bushdb\db.cr#L21" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -635,6 +660,8 @@ Default by 0o666 for read-write.</p>
       <br/>
       <div>
         
+          [<a href="https://github.com/kebasyaty/bushdb/blob/93e7237c9763c4c6b0ed8ca08e78dcfa1a70e810/src\bushdb\db.cr#L33" target="_blank">View source</a>]
+        
       </div>
     </div>
   
@@ -654,6 +681,8 @@ Default by 0o666 for read-write.</p>
       
       <br/>
       <div>
+        
+          [<a href="https://github.com/kebasyaty/bushdb/blob/93e7237c9763c4c6b0ed8ca08e78dcfa1a70e810/src\bushdb\db.cr#L33" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -683,6 +712,8 @@ db.napalm <span class="c"># =&gt; ErrorDirMissing</span></code></pre>
       <br/>
       <div>
         
+          [<a href="https://github.com/kebasyaty/bushdb/blob/93e7237c9763c4c6b0ed8ca08e78dcfa1a70e810/src\bushdb\db.cr#L212" target="_blank">View source</a>]
+        
       </div>
     </div>
   
@@ -711,6 +742,8 @@ db.napalm? <span class="c"># =&gt; false</span></code></pre>
       <br/>
       <div>
         
+          [<a href="https://github.com/kebasyaty/bushdb/blob/93e7237c9763c4c6b0ed8ca08e78dcfa1a70e810/src\bushdb\db.cr#L231" target="_blank">View source</a>]
+        
       </div>
     </div>
   
@@ -731,6 +764,8 @@ Defaule by = &quot;BushDB&quot;</p>
       <br/>
       <div>
         
+          [<a href="https://github.com/kebasyaty/bushdb/blob/93e7237c9763c4c6b0ed8ca08e78dcfa1a70e810/src\bushdb\db.cr#L24" target="_blank">View source</a>]
+        
       </div>
     </div>
   
@@ -750,6 +785,8 @@ Defaule by = &quot;BushDB&quot;</p>
       
       <br/>
       <div>
+        
+          [<a href="https://github.com/kebasyaty/bushdb/blob/93e7237c9763c4c6b0ed8ca08e78dcfa1a70e810/src\bushdb\db.cr#L24" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -774,6 +811,8 @@ db.set(<span class="s">&quot;key name&quot;</span>, <span class="s">&quot;Some t
       
       <br/>
       <div>
+        
+          [<a href="https://github.com/kebasyaty/bushdb/blob/93e7237c9763c4c6b0ed8ca08e78dcfa1a70e810/src\bushdb\db.cr#L45" target="_blank">View source</a>]
         
       </div>
     </div>
