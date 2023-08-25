@@ -1,3 +1,7 @@
+#### v0.5.4 2023-08-25
+
+- Fix doc tests.
+
 #### v0.5.3 2023-08-25
 
 - Update doc test.
