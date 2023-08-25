@@ -103,7 +103,7 @@ module BushDB
     # db.set("key name", "Some text")
     # db.delete("key name")
     # db.get("key name")    # => nil
-    # db.delete("key name") # => ErrorKeyMissing
+    # db.delete("key name") # => KeyMissing
     # ```
     #
     def delete(key : String) : Void
@@ -164,7 +164,7 @@ module BushDB
     #
     # db = BushDB::DB.new
     # db.clear
-    # db.clear # => ErrorDirMissing
+    # db.clear # => DirMissing
     # ```
     #
     def clear : Void
@@ -206,7 +206,7 @@ module BushDB
     #
     # db = BushDB::DB.new
     # db.napalm
-    # db.napalm # => ErrorDirMissing
+    # db.napalm # => DirMissing
     # ```
     #
     def napalm : Void
