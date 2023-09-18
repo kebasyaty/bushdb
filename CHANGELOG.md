@@ -1,3 +1,7 @@
+#### v0.5.5 2023-09-18
+
+- Global variables removed.
+
 #### v0.5.4 2023-08-25
 
 - Fix doc tests.
