@@ -112,7 +112,7 @@ module BushDB
       # The path to the database cell.
       leaf_path : Path = Path.new(@root_store, @db_name, md5_path, "leaf.txt")
       if File.file?(leaf_path)
-        return !File.read(leaf_path).empty?
+        return !Hash(String, String).from_json(File.read(leaf_path))[key]?.nil?
       end
       false
     end

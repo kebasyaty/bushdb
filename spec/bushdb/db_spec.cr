@@ -38,11 +38,13 @@ describe BushDB do
         DB_TEST.get("key 1").should eq "Some text 1"
         DB_TEST.delete("key 1").should be_nil
         DB_TEST.get("key 1").should be_nil
+        DB_TEST.has("key 1").should be_false
       end
       it "delete key 2" do
         DB_TEST.get("key 2").should eq "Some text 2"
         DB_TEST.delete("key 2").should be_nil
         DB_TEST.get("key 2").should be_nil
+        DB_TEST.has("key 2").should be_false
       end
       it "delete a non-existent key" do
         key : String = "key missing"
@@ -62,15 +64,19 @@ describe BushDB do
         DB_TEST.get("key 1").should eq "Some text 1"
         DB_TEST.delete?("key 1").should be_true
         DB_TEST.get("key 1").should be_nil
+        DB_TEST.has("key 1").should be_false
       end
       it "delete key 2" do
         DB_TEST.get("key 2").should eq "Some text 2"
         DB_TEST.delete?("key 2").should be_true
         DB_TEST.get("key 2").should be_nil
+        DB_TEST.has("key 2").should be_false
       end
       it "delete a non-existent key" do
         DB_TEST.delete?("key 1").should be_false
         DB_TEST.delete?("key 2").should be_false
+        DB_TEST.has("key 1").should be_false
+        DB_TEST.has("key 2").should be_false
       end
     end
 
@@ -88,6 +94,18 @@ describe BushDB do
         db_path : Path = DB_TEST.root_store / DB_TEST.db_name
         Dir.exists?(db_path).should be_false
       end
+      it "get a value by an not existing key" do
+        DB_TEST.get("key name").should be_nil
+        DB_TEST.get("key missing").should be_nil
+        DB_TEST.get("key 1").should be_nil
+        DB_TEST.get("key 2").should be_nil
+      end
+      it "check for a non-existent key" do
+        DB_TEST.has("key name").should be_false
+        DB_TEST.has("key missing").should be_false
+        DB_TEST.has("key 1").should be_false
+        DB_TEST.has("key 2").should be_false
+      end
     end
 
     describe "#clear?" do
@@ -101,6 +119,18 @@ describe BushDB do
       it "make sure the directory for the database is missing" do
         db_path : Path = DB_TEST.root_store / DB_TEST.db_name
         Dir.exists?(db_path).should be_false
+      end
+      it "get a value by an not existing key" do
+        DB_TEST.get("key name").should be_nil
+        DB_TEST.get("key missing").should be_nil
+        DB_TEST.get("key 1").should be_nil
+        DB_TEST.get("key 2").should be_nil
+      end
+      it "check for a non-existent key" do
+        DB_TEST.has("key name").should be_false
+        DB_TEST.has("key missing").should be_false
+        DB_TEST.has("key 1").should be_false
+        DB_TEST.has("key 2").should be_false
       end
     end
 
@@ -117,6 +147,18 @@ describe BushDB do
       it "make sure the root directory is missing" do
         Dir.exists?(DB_TEST.root_store).should be_false
       end
+      it "get a value by an not existing key" do
+        DB_TEST.get("key name").should be_nil
+        DB_TEST.get("key missing").should be_nil
+        DB_TEST.get("key 1").should be_nil
+        DB_TEST.get("key 2").should be_nil
+      end
+      it "check for a non-existent key" do
+        DB_TEST.has("key name").should be_false
+        DB_TEST.has("key missing").should be_false
+        DB_TEST.has("key 1").should be_false
+        DB_TEST.has("key 2").should be_false
+      end
     end
 
     describe "#napalm?" do
@@ -129,6 +171,18 @@ describe BushDB do
       end
       it "make sure the root directory is missing" do
         Dir.exists?(DB_TEST.root_store).should be_false
+      end
+      it "get a value by an not existing key" do
+        DB_TEST.get("key name").should be_nil
+        DB_TEST.get("key missing").should be_nil
+        DB_TEST.get("key 1").should be_nil
+        DB_TEST.get("key 2").should be_nil
+      end
+      it "check for a non-existent key" do
+        DB_TEST.has("key name").should be_false
+        DB_TEST.has("key missing").should be_false
+        DB_TEST.has("key 1").should be_false
+        DB_TEST.has("key 2").should be_false
       end
     end
   end
