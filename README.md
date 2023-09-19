@@ -22,7 +22,7 @@ There is no need to iterate through all the keys in search of the desired value.
    dependencies:
      bushdb:
        github: kebasyaty/bushdb
-       version: ~> 0.6.0
+       version: ~> 0.6.1
    ```
 
 2. Run `shards install`
@@ -38,6 +38,7 @@ db : BushDB::DB = BushDB::DB.new
 # Set, get, delete
 db.set("key name", "Some text")
 db.get("key name") # => "Some text"
+db.has("key name") # => true
 #
 db.delete("key name")
 # or
