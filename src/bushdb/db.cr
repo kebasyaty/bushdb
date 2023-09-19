@@ -4,7 +4,7 @@ require "file_utils"
 require "./errors"
 
 module BushDB
-  # A structure for database management - Set, get, update, delete, clear and napalm.
+  # A structure for database management - Set, get, has, update, delete, clear and napalm.
   #
   # Example:
   # ```
@@ -13,6 +13,7 @@ module BushDB
   # db = BushDB::DB.new
   # db.set("key name", "Some text")
   # db.get("key name") # => "Some text"
+  # db.has("key name") # => true
   # db.delete("key name")
   # db.clear
   # db.napalm
