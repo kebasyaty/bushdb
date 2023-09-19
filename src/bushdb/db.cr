@@ -42,10 +42,10 @@ module BushDB
     # db.set("key name", "Some text")
     # ```
     #
-    def set(key : String, value : String) : Void
+    def set(key : String, value : String)
       # Key to md5 sum.
       md5_str : String = Digest::MD5.hexdigest(key)
-      # Tuple for splatting md5 sum.
+      # Convert md5 sum to path.
       md5_path : String = md5_str.split(//).join("/")
       # The path of the branch to the database cell.
       branch_path : Path = Path.new(@root_store, @db_name, md5_path)
@@ -79,10 +79,10 @@ module BushDB
     # db.get("key missing") # => nil
     # ```
     #
-    def get(key : String) : String?
+    def get(key : String) : String | Nil
       # Key to md5 sum.
       md5_str : String = Digest::MD5.hexdigest(key)
-      # Tuple for splatting md5 sum.
+      # Convert md5 sum to path.
       md5_path : String = md5_str.split(//).join("/")
       # The path to the database cell.
       leaf_path : Path = Path.new(@root_store, @db_name, md5_path, "leaf.txt")
@@ -90,6 +90,31 @@ module BushDB
         return Hash(String, String).from_json(File.read(leaf_path))[key]?
       end
       nil
+    end
+
+    # Check the presence of a key in the database.
+    #
+    # Example:
+    # ```
+    # require "bushdb"
+    #
+    # db = BushDB::DB.new
+    # db.set("key name", "Some text")
+    # db.has("key name")    # => true
+    # db.has("key missing") # => false
+    # ```
+    #
+    def has(key : String) : Bool
+      # Key to md5 sum.
+      md5_str : String = Digest::MD5.hexdigest(key)
+      # Convert md5 sum to path.
+      md5_path : String = md5_str.split(//).join("/")
+      # The path to the database cell.
+      leaf_path : Path = Path.new(@root_store, @db_name, md5_path, "leaf.txt")
+      if File.file?(leaf_path)
+        return !Hash(String, String).from_json(File.read(leaf_path))[key]?.nil?
+      end
+      false
     end
 
     # Delete the key-value from the database.
@@ -106,10 +131,10 @@ module BushDB
     # db.delete("key name") # => KeyMissing
     # ```
     #
-    def delete(key : String) : Void
+    def delete(key : String)
       # Key to md5 sum.
       md5_str : String = Digest::MD5.hexdigest(key)
-      # Tuple for splatting md5 sum.
+      # Convert md5 sum to path.
       md5_path : String = md5_str.split(//).join("/")
       # The path to the database cell.
       leaf_path : Path = Path.new(@root_store, @db_name, md5_path, "leaf.txt")
@@ -140,7 +165,7 @@ module BushDB
     def delete?(key : String) : Bool
       # Key to md5 sum.
       md5_str : String = Digest::MD5.hexdigest(key)
-      # Tuple for splatting md5 sum.
+      # Convert md5 sum to path.
       md5_path : String = md5_str.split(//).join("/")
       # The path to the database cell.
       leaf_path : Path = Path.new(@root_store, @db_name, md5_path, "leaf.txt")
@@ -167,7 +192,7 @@ module BushDB
     # db.clear # => DirMissing
     # ```
     #
-    def clear : Void
+    def clear
       db_path : Path = @root_store / @db_name
       return FileUtils.rm_rf(db_path) if Dir.exists?(db_path)
       raise BushDB::DirMissing.new(@db_name)
@@ -209,7 +234,7 @@ module BushDB
     # db.napalm # => DirMissing
     # ```
     #
-    def napalm : Void
+    def napalm
       return FileUtils.rm_rf(@root_store) if Dir.exists?(@root_store)
       raise BushDB::DirMissing.new(@root_store)
     end
