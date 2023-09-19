@@ -1,3 +1,7 @@
+#### v0.6.1 2023-09-19
+
+- Documentation updated.
+
 #### v0.6.0 2023-09-19
 
 - Added method to check for key availability.
