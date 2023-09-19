@@ -42,7 +42,7 @@ module BushDB
     # db.set("key name", "Some text")
     # ```
     #
-    def set(key : String, value : String) : Void
+    def set(key : String, value : String)
       # Key to md5 sum.
       md5_str : String = Digest::MD5.hexdigest(key)
       # Tuple for splatting md5 sum.
@@ -79,7 +79,7 @@ module BushDB
     # db.get("key missing") # => nil
     # ```
     #
-    def get(key : String) : String?
+    def get(key : String) : String | Nil
       # Key to md5 sum.
       md5_str : String = Digest::MD5.hexdigest(key)
       # Tuple for splatting md5 sum.
@@ -106,7 +106,7 @@ module BushDB
     # db.delete("key name") # => KeyMissing
     # ```
     #
-    def delete(key : String) : Void
+    def delete(key : String)
       # Key to md5 sum.
       md5_str : String = Digest::MD5.hexdigest(key)
       # Tuple for splatting md5 sum.
@@ -167,7 +167,7 @@ module BushDB
     # db.clear # => DirMissing
     # ```
     #
-    def clear : Void
+    def clear
       db_path : Path = @root_store / @db_name
       return FileUtils.rm_rf(db_path) if Dir.exists?(db_path)
       raise BushDB::DirMissing.new(@db_name)
@@ -209,7 +209,7 @@ module BushDB
     # db.napalm # => DirMissing
     # ```
     #
-    def napalm : Void
+    def napalm
       return FileUtils.rm_rf(@root_store) if Dir.exists?(@root_store)
       raise BushDB::DirMissing.new(@root_store)
     end
