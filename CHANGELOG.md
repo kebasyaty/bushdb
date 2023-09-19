@@ -1,3 +1,7 @@
+#### v0.6.0 2023-09-19
+
+- Added method to check for key availability.
+
 #### v0.5.5 2023-09-18
 
 - Global variables removed.
