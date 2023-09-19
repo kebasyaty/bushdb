@@ -121,7 +121,7 @@ There is no need to iterate through all the keys in search of the desired value.
 <pre><code class="language-yaml">dependencies:
   bushdb:
     github: kebasyaty/bushdb
-    version: ~&gt; 0.6.0</code></pre>
+    version: ~&gt; 0.6.1</code></pre>
 </li>
 <li>
 <p>Run <code>shards install</code></p>
@@ -140,6 +140,7 @@ db : <span class="t">BushDB</span><span class="t">::</span><span class="t">DB</s
 <span class="c"># Set, get, delete</span>
 db.set(<span class="s">&quot;key name&quot;</span>, <span class="s">&quot;Some text&quot;</span>)
 db.get(<span class="s">&quot;key name&quot;</span>) <span class="c"># =&gt; &quot;Some text&quot;</span>
+db.has(<span class="s">&quot;key name&quot;</span>) <span class="c"># =&gt; true</span>
 <span class="c">#</span>
 db.delete(<span class="s">&quot;key name&quot;</span>)
 <span class="c"># or</span>
