@@ -20,6 +20,15 @@ describe BushDB do
       end
     end
 
+    describe "#has" do
+      it "check for an existing key" do
+        DB_TEST.has("key name").should be_true
+      end
+      it "check for a non-existent key" do
+        DB_TEST.has("key missing").should be_false
+      end
+    end
+
     describe "#delete" do
       it "add keys for delete" do
         DB_TEST.set("key 1", "Some text 1").should be_nil

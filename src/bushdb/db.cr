@@ -92,6 +92,31 @@ module BushDB
       nil
     end
 
+    # Check the presence of a key in the database.
+    #
+    # Example:
+    # ```
+    # require "bushdb"
+    #
+    # db = BushDB::DB.new
+    # db.set("key name", "Some text")
+    # db.has("key name")    # => true
+    # db.has("key missing") # => false
+    # ```
+    #
+    def has(key : String) : Bool
+      # Key to md5 sum.
+      md5_str : String = Digest::MD5.hexdigest(key)
+      # Tuple for splatting md5 sum.
+      md5_path : String = md5_str.split(//).join("/")
+      # The path to the database cell.
+      leaf_path : Path = Path.new(@root_store, @db_name, md5_path, "leaf.txt")
+      if File.file?(leaf_path)
+        return !File.read(leaf_path).empty?
+      end
+      false
+    end
+
     # Delete the key-value from the database.
     # If the key is missing, an #ErrorKeyMissing exception is raised.
     #
