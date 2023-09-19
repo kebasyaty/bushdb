@@ -45,7 +45,7 @@ module BushDB
     def set(key : String, value : String)
       # Key to md5 sum.
       md5_str : String = Digest::MD5.hexdigest(key)
-      # Tuple for splatting md5 sum.
+      # Convert md5 sum to path.
       md5_path : String = md5_str.split(//).join("/")
       # The path of the branch to the database cell.
       branch_path : Path = Path.new(@root_store, @db_name, md5_path)
@@ -82,7 +82,7 @@ module BushDB
     def get(key : String) : String | Nil
       # Key to md5 sum.
       md5_str : String = Digest::MD5.hexdigest(key)
-      # Tuple for splatting md5 sum.
+      # Convert md5 sum to path.
       md5_path : String = md5_str.split(//).join("/")
       # The path to the database cell.
       leaf_path : Path = Path.new(@root_store, @db_name, md5_path, "leaf.txt")
@@ -107,7 +107,7 @@ module BushDB
     def has(key : String) : Bool
       # Key to md5 sum.
       md5_str : String = Digest::MD5.hexdigest(key)
-      # Tuple for splatting md5 sum.
+      # Convert md5 sum to path.
       md5_path : String = md5_str.split(//).join("/")
       # The path to the database cell.
       leaf_path : Path = Path.new(@root_store, @db_name, md5_path, "leaf.txt")
@@ -134,7 +134,7 @@ module BushDB
     def delete(key : String)
       # Key to md5 sum.
       md5_str : String = Digest::MD5.hexdigest(key)
-      # Tuple for splatting md5 sum.
+      # Convert md5 sum to path.
       md5_path : String = md5_str.split(//).join("/")
       # The path to the database cell.
       leaf_path : Path = Path.new(@root_store, @db_name, md5_path, "leaf.txt")
@@ -165,7 +165,7 @@ module BushDB
     def delete?(key : String) : Bool
       # Key to md5 sum.
       md5_str : String = Digest::MD5.hexdigest(key)
-      # Tuple for splatting md5 sum.
+      # Convert md5 sum to path.
       md5_path : String = md5_str.split(//).join("/")
       # The path to the database cell.
       leaf_path : Path = Path.new(@root_store, @db_name, md5_path, "leaf.txt")
