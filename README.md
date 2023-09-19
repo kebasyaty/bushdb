@@ -22,7 +22,7 @@ There is no need to iterate through all the keys in search of the desired value.
    dependencies:
      bushdb:
        github: kebasyaty/bushdb
-       version: ~> 0.5.4
+       version: ~> 0.6.0
    ```
 
 2. Run `shards install`
