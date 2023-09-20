@@ -113,7 +113,8 @@ module BushDB
       # The path to the database cell.
       leaf_path : Path = Path.new(@root_store, @db_name, md5_path, "leaf.txt")
       if File.file?(leaf_path)
-        return !Hash(String, String).from_json(File.read(leaf_path))[key]?.nil?
+        flag : Bool = /"#{key}":/.matches?(File.read(leaf_path))
+        return flag
       end
       false
     end
