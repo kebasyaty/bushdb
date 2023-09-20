@@ -1,3 +1,8 @@
+#### v0.6.2 2023-09-20
+
+- Optimized the method has().
+- Updated tests.
+
 #### v0.6.1 2023-09-19
 
 - Documentation updated.

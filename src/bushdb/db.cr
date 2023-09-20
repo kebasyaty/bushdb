@@ -47,9 +47,9 @@ module BushDB
       # Key to md5 sum.
       md5_str : String = Digest::MD5.hexdigest(key)
       # Convert md5 sum to path.
-      md5_path : String = md5_str.split(//).join("/")
+      md5_path_str : String = md5_str.split(//).join("/")
       # The path of the branch to the database cell.
-      branch_path : Path = Path.new(@root_store, @db_name, md5_path)
+      branch_path : Path = Path.new(@root_store, @db_name, md5_path_str)
       # If the branch does not exist, need to create it.
       unless Dir.exists?(branch_path)
         Dir.mkdir_p(branch_path, mode = @branch_mode)
@@ -84,9 +84,9 @@ module BushDB
       # Key to md5 sum.
       md5_str : String = Digest::MD5.hexdigest(key)
       # Convert md5 sum to path.
-      md5_path : String = md5_str.split(//).join("/")
+      md5_path_str : String = md5_str.split(//).join("/")
       # The path to the database cell.
-      leaf_path : Path = Path.new(@root_store, @db_name, md5_path, "leaf.txt")
+      leaf_path : Path = Path.new(@root_store, @db_name, md5_path_str, "leaf.txt")
       if File.file?(leaf_path)
         return Hash(String, String).from_json(File.read(leaf_path))[key]?
       end
@@ -109,11 +109,13 @@ module BushDB
       # Key to md5 sum.
       md5_str : String = Digest::MD5.hexdigest(key)
       # Convert md5 sum to path.
-      md5_path : String = md5_str.split(//).join("/")
+      md5_path_str : String = md5_str.split(//).join("/")
       # The path to the database cell.
-      leaf_path : Path = Path.new(@root_store, @db_name, md5_path, "leaf.txt")
+      leaf_path : Path = Path.new(@root_store, @db_name, md5_path_str, "leaf.txt")
       if File.file?(leaf_path)
-        return !Hash(String, String).from_json(File.read(leaf_path))[key]?.nil?
+        # Check for the key in the Leaf.txt file.
+        flag : Bool = /(?:"#{key}":)/.matches?(File.read(leaf_path))
+        return flag
       end
       false
     end
@@ -136,9 +138,9 @@ module BushDB
       # Key to md5 sum.
       md5_str : String = Digest::MD5.hexdigest(key)
       # Convert md5 sum to path.
-      md5_path : String = md5_str.split(//).join("/")
+      md5_path_str : String = md5_str.split(//).join("/")
       # The path to the database cell.
-      leaf_path : Path = Path.new(@root_store, @db_name, md5_path, "leaf.txt")
+      leaf_path : Path = Path.new(@root_store, @db_name, md5_path_str, "leaf.txt")
       # Delete the key
       if File.file?(leaf_path)
         data : Hash(String, String) = Hash(String, String).from_json(File.read(leaf_path))
@@ -167,9 +169,9 @@ module BushDB
       # Key to md5 sum.
       md5_str : String = Digest::MD5.hexdigest(key)
       # Convert md5 sum to path.
-      md5_path : String = md5_str.split(//).join("/")
+      md5_path_str : String = md5_str.split(//).join("/")
       # The path to the database cell.
-      leaf_path : Path = Path.new(@root_store, @db_name, md5_path, "leaf.txt")
+      leaf_path : Path = Path.new(@root_store, @db_name, md5_path_str, "leaf.txt")
       # Delete the key
       if File.file?(leaf_path)
         data : Hash(String, String) = Hash(String, String).from_json(File.read(leaf_path))
