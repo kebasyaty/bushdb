@@ -113,8 +113,8 @@ module BushDB
       # The path to the database cell.
       leaf_path : Path = Path.new(@root_store, @db_name, md5_path, "leaf.txt")
       if File.file?(leaf_path)
-        flag : Bool = /"#{key}":/.matches?(File.read(leaf_path))
-        return flag
+        # Check for the key in the Leaf.txt file.
+        return /"#{key}":/.matches?(File.read(leaf_path))
       end
       false
     end
