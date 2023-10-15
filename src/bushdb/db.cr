@@ -55,7 +55,7 @@ module BushDB
         Dir.mkdir_p(branch_path, mode = @branch_mode)
       end
       # The path to the database cell.
-      leaf_path : Path = branch_path / "leaf.txt"
+      leaf_path : Path = branch_path / "leaf.json"
       # Write key-value to the database.
       unless File.file?(leaf_path)
         # Add new data to a blank leaf.
@@ -86,7 +86,7 @@ module BushDB
       # Convert md5 sum to path.
       md5_path_str : String = md5_str.split(//).join("/")
       # The path to the database cell.
-      leaf_path : Path = Path.new(@root_store, @db_name, md5_path_str, "leaf.txt")
+      leaf_path : Path = Path.new(@root_store, @db_name, md5_path_str, "leaf.json")
       if File.file?(leaf_path)
         return Hash(String, String).from_json(File.read(leaf_path))[key]?
       end
@@ -111,9 +111,9 @@ module BushDB
       # Convert md5 sum to path.
       md5_path_str : String = md5_str.split(//).join("/")
       # The path to the database cell.
-      leaf_path : Path = Path.new(@root_store, @db_name, md5_path_str, "leaf.txt")
+      leaf_path : Path = Path.new(@root_store, @db_name, md5_path_str, "leaf.json")
       if File.file?(leaf_path)
-        # Check for the key in the Leaf.txt file.
+        # Check for the key in the Leaf.json file.
         flag : Bool = /(?:"#{key}":)/.matches?(File.read(leaf_path))
         return flag
       end
@@ -140,7 +140,7 @@ module BushDB
       # Convert md5 sum to path.
       md5_path_str : String = md5_str.split(//).join("/")
       # The path to the database cell.
-      leaf_path : Path = Path.new(@root_store, @db_name, md5_path_str, "leaf.txt")
+      leaf_path : Path = Path.new(@root_store, @db_name, md5_path_str, "leaf.json")
       # Delete the key
       if File.file?(leaf_path)
         data : Hash(String, String) = Hash(String, String).from_json(File.read(leaf_path))
@@ -171,7 +171,7 @@ module BushDB
       # Convert md5 sum to path.
       md5_path_str : String = md5_str.split(//).join("/")
       # The path to the database cell.
-      leaf_path : Path = Path.new(@root_store, @db_name, md5_path_str, "leaf.txt")
+      leaf_path : Path = Path.new(@root_store, @db_name, md5_path_str, "leaf.json")
       # Delete the key
       if File.file?(leaf_path)
         data : Hash(String, String) = Hash(String, String).from_json(File.read(leaf_path))

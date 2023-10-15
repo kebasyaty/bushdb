@@ -1,3 +1,7 @@
+#### v0.6.3 2023-10-15
+
+- The file extension for data has changed.
+
 #### v0.6.2 2023-09-20
 
 - Optimized the method has().
