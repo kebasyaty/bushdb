@@ -1,5 +1,6 @@
 # Custom exceptions for BushDB.
 module BushDB
+  # Root custom exception.
   class BushDBException < Exception; end
 
   # Error of missing key.
