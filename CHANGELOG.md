@@ -1,3 +1,7 @@
+#### v0.6.4 2023-10-26
+
+- Updated tests.
+
 #### v0.6.3 2023-10-15
 
 - The file extension for data has changed.
