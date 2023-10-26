@@ -10,13 +10,13 @@
 
 
 
-<link href="css/style.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="js/doc.js"></script>
+<link href="../../css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../../js/doc.js"></script>
 
   <meta name="repository-name" content="bushdb">
-  <title>BushDB - bushdb v0</title>
+  <title>BushDB::Errors::DirMissing - bushdb v0</title>
   <script type="text/javascript">
-    CrystalDocs.base_path = "";
+    CrystalDocs.base_path = "../../";
   </script>
 </head>
 <body>
@@ -39,7 +39,7 @@
 
     <div class="project-summary">
       <h1 class="project-name">
-        <a href="index.html">
+        <a href="../../index.html">
           bushdb
         </a>
       </h1>
@@ -58,32 +58,32 @@
     <ul>
   
   <li class="parent open current" data-id="bushdb/BushDB" data-name="bushdb">
-      <a href="BushDB.html">BushDB</a>
+      <a href="../../BushDB.html">BushDB</a>
       
         <ul>
   
   <li class=" " data-id="bushdb/BushDB/DB" data-name="bushdb::db">
-      <a href="BushDB/DB.html">DB</a>
+      <a href="../../BushDB/DB.html">DB</a>
       
     </li>
   
-  <li class="parent " data-id="bushdb/BushDB/Errors" data-name="bushdb::errors">
-      <a href="BushDB/Errors.html">Errors</a>
+  <li class="parent open current" data-id="bushdb/BushDB/Errors" data-name="bushdb::errors">
+      <a href="../../BushDB/Errors.html">Errors</a>
       
         <ul>
   
   <li class=" " data-id="bushdb/BushDB/Errors/BushDBException" data-name="bushdb::errors::bushdbexception">
-      <a href="BushDB/Errors/BushDBException.html">BushDBException</a>
+      <a href="../../BushDB/Errors/BushDBException.html">BushDBException</a>
       
     </li>
   
-  <li class=" " data-id="bushdb/BushDB/Errors/DirMissing" data-name="bushdb::errors::dirmissing">
-      <a href="BushDB/Errors/DirMissing.html">DirMissing</a>
+  <li class=" current" data-id="bushdb/BushDB/Errors/DirMissing" data-name="bushdb::errors::dirmissing">
+      <a href="../../BushDB/Errors/DirMissing.html">DirMissing</a>
       
     </li>
   
   <li class=" " data-id="bushdb/BushDB/Errors/KeyMissing" data-name="bushdb::errors::keymissing">
-      <a href="BushDB/Errors/KeyMissing.html">KeyMissing</a>
+      <a href="../../BushDB/Errors/KeyMissing.html">KeyMissing</a>
       
     </li>
   
@@ -106,10 +106,12 @@
 <div class="main-content">
 <h1 class="type-name">
 
-  <span class="kind">module</span> BushDB
+  <span class="kind">class</span> BushDB::<wbr>Errors::<wbr>DirMissing
 
 </h1>
 
+
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="../../BushDB/Errors/DirMissing.html">BushDB::Errors::DirMissing</a></li><li class="superclass"><a href="../../BushDB/Errors/BushDBException.html">BushDB::Errors::BushDBException</a></li><li class="superclass">Exception</li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
 
 
 
@@ -123,12 +125,7 @@
     Overview
   </h2>
 
-  <p><strong>bushDB</strong> is a fast key-value storage library that provides an ordered mapping from string keys to string values.
-The library uses fractal-tree addressing.
-The maximum size of the database is 16**32=340282366920938463463374607431768211456 branches,
-each branch can store one or more keys.
-The value of any key can be obtained in 32 steps, thereby achieving high performance.
-There is no need to iterate through all the keys in search of the desired value.</p>
+  <p>Error of missing directory.</p>
 
 
 
@@ -153,21 +150,7 @@ There is no need to iterate through all the keys in search of the desired value.
   </h2>
   
     
-      <a href="https://github.com/kebasyaty/bushdb/blob/9b60898364982f4fd58a451cf72317d1a2713155/src\bushdb.cr#L9" target="_blank">
-        src\bushdb.cr
-      </a>
-    
-    <br/>
-  
-    
-      <a href="https://github.com/kebasyaty/bushdb/blob/9b60898364982f4fd58a451cf72317d1a2713155/src\bushdb\db.cr#L6" target="_blank">
-        src\bushdb\db.cr
-      </a>
-    
-    <br/>
-  
-    
-      <a href="https://github.com/kebasyaty/bushdb/blob/9b60898364982f4fd58a451cf72317d1a2713155/src\bushdb\errors.cr#L2" target="_blank">
+      <a href="https://github.com/kebasyaty/bushdb/blob/9b60898364982f4fd58a451cf72317d1a2713155/src\bushdb\errors.cr#L15" target="_blank">
         src\bushdb\errors.cr
       </a>
     
@@ -176,26 +159,24 @@ There is no need to iterate through all the keys in search of the desired value.
 
 
 
-  
-    <h2>
-      <a id="constant-summary" class="anchor" href="#constant-summary">
+
+
+  <h2>
+    <a id="constructors" class="anchor" href="#constructors">
   <svg class="octicon-link" aria-hidden="true">
     <use href="#octicon-link"/>
   </svg>
 </a>
-      Constant Summary
-    </h2>
-  
-  <dl>
+    Constructors
+  </h2>
+  <ul class="list-summary">
     
-      <dt class="entry-const" id="VERSION">
-        <strong>VERSION</strong> = <code><span class="s">&quot;0.6.4&quot;</span></code>
-      </dt>
-      
+      <li class="entry-summary">
+        <a href="#new%28directory%3AString%7CPath%29-class-method" class="signature"><strong>.new</strong>(directory : String | Path)</a>
+        
+      </li>
     
-  </dl>
-
-
+  </ul>
 
 
 
@@ -207,8 +188,74 @@ There is no need to iterate through all the keys in search of the desired value.
 
 <div class="methods-inherited">
   
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
 </div>
 
+
+  <h2>
+    <a id="constructor-detail" class="anchor" href="#constructor-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Constructor Detail
+  </h2>
+  
+    <div class="entry-detail" id="new(directory:String|Path)-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>(directory : String | Path)
+
+        <a class="method-permalink" href="#new%28directory%3AString%7CPath%29-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/bushdb/blob/9b60898364982f4fd58a451cf72317d1a2713155/src\bushdb\errors.cr#L16" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
 
 
 
