@@ -1,5 +1,5 @@
 name: bushdb
-version: 0.6.3
+version: 0.6.4
 crystal: ">= 1.9.0, < 2.0"
 
 authors:
