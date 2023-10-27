@@ -13,6 +13,11 @@ The value of any key can be obtained in 32 steps, thereby achieving high perform
 <br>
 There is no need to iterate through all the keys in search of the desired value.
 
+<p>
+  <img src="https://github.com/kebasyaty/bushdb/raw/v0/pictures/status_project/Status_Project-Beta-.svg"
+    alt="Status Project">
+</p>
+
 [![CI](https://github.com/kebasyaty/bushdb/workflows/CI/badge.svg)](https://github.com/kebasyaty/bushdb/actions)
 [![Docs](https://img.shields.io/badge/docs-available-brightgreen.svg)](https://kebasyaty.github.io/bushdb/)
 [![Crystal](https://img.shields.io/badge/crystal-v1.9%2B-red)](https://crystal-lang.org/)
