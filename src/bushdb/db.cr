@@ -21,15 +21,19 @@ module BushDB
   #
   struct DB
     # Root directory for databases.
+    # <br>
     # Defaule by = "BushDB"
     property root_store : Path = Path.new("BushDB")
     # Database name.
+    # <br>
     # Defaule by = "store"
     property db_name : String = "store"
     # Directory permissions.
+    # <br>
     # The linux-style permission mode can be specified, with a default of 777 (0o777).
     property branch_mode : Int32 = 777
     # File permissions.
+    # <br>
     # Default by 0o666 for read-write.
     property leaf_mode : File::Permissions = File::Permissions.new(0o666)
 
@@ -121,6 +125,7 @@ module BushDB
     end
 
     # Delete the key-value from the database.
+    # <br>
     # If the key is missing, an #ErrorKeyMissing exception is raised.
     #
     # Example:
@@ -152,6 +157,7 @@ module BushDB
     end
 
     # Delete the key-value from the database.
+    # <br>
     # Returns false if the key is missing.
     #
     # Example:
@@ -183,6 +189,7 @@ module BushDB
     end
 
     # Remove directory of database.
+    # <br>
     # If the directory is missing, an #ErrorDirMissing exception is raised.
     # WARNING: Be careful, this will remove all keys.
     #
@@ -202,6 +209,7 @@ module BushDB
     end
 
     # Remove directory of database.
+    # <br>
     # Returns false if the directory is missing.
     # WARNING: Be careful, this will remove all keys.
     #
@@ -224,6 +232,7 @@ module BushDB
     end
 
     # Delete the root directory.
+    # <br>
     # If the directory is missing, an #ErrorDirMissing exception is raised.
     # WARNING: Be careful, this will remove all databases.
     # NOTE: The main purpose is tests.
@@ -243,6 +252,7 @@ module BushDB
     end
 
     # Delete the root directory.
+    # <br>
     # Returns false if the root directory is missing.
     # WARNING: Be careful, this will remove all databases.
     # NOTE: The main purpose is tests.
