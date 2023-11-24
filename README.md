@@ -20,7 +20,7 @@ There is no need to iterate through all the keys in search of the desired value.
 [![GitHub license](https://badgen.net/github/license/kebasyaty/bushdb)](https://github.com/kebasyaty/bushdb/blob/v0/LICENSE)
 
 <p>
-  <a href="https://github.com/kebasyaty/bushdb">
+  <a href="https://github.com/kebasyaty/bushdb" target="_blank">
     <img src="https://github.com/kebasyaty/bushdb/raw/v0/pictures/status_project/Status_Project-Beta-.svg"
       alt="Status Project">
   </a>
