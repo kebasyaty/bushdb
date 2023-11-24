@@ -19,7 +19,6 @@ There is no need to iterate through all the keys in search of the desired value.
 [![Github all releases](https://img.shields.io/github/downloads/kebasyaty/bushdb/total.svg)](https://GitHub.com/kebasyaty/bushdb/releases/)
 [![GitHub license](https://badgen.net/github/license/kebasyaty/bushdb)](https://github.com/kebasyaty/bushdb/blob/v0/LICENSE)
 
-
 <p>
   <a href="https://github.com/kebasyaty/bushdb" target="_blank">
     <img src="https://github.com/kebasyaty/bushdb/raw/v0/pictures/status_project/Status_Project-Beta-.svg"
