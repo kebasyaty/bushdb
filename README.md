@@ -72,11 +72,11 @@ db.napalm? # => true
 
 ## License
 
-**This project is licensed under the** [MIT](https://github.com/kebasyaty/bushdb/blob/v0/LICENSE "MIT").
+**This project is licensed under the** [MIT](https://github.com/kebasyaty/bushdb/blob/v1/LICENSE "MIT").
 
 ## Changelog
 
-[View the change history.](https://github.com/kebasyaty/bushdb/blob/v0/CHANGELOG.md "View the change history.")
+[View the change history.](https://github.com/kebasyaty/bushdb/blob/v1/CHANGELOG.md "View the change history.")
 
 ## Contributing
 
