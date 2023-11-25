@@ -21,7 +21,7 @@ There is no need to iterate through all the keys in search of the desired value.
 
 <p>
   <a href="https://github.com/kebasyaty/bushdb" target="_blank">
-    <img src="https://github.com/kebasyaty/bushdb/raw/v0/pictures/status_project/Status_Project-Beta-.svg"
+    <img src="https://github.com/kebasyaty/bushdb/raw/v1/pictures/status_project/Status_Project-Stable-.svg"
       alt="Status Project">
   </a>
 </p>
@@ -34,7 +34,7 @@ There is no need to iterate through all the keys in search of the desired value.
    dependencies:
      bushdb:
        github: kebasyaty/bushdb
-       version: ~> 0.6.4
+       version: ~> 1.0.0
    ```
 
 2. Run `shards install`
