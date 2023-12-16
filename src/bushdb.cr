@@ -11,5 +11,5 @@ require "./bushdb/*"
 # <br>
 # There is no need to iterate through all the keys in search of the desired value.
 module BushDB
-  VERSION = "1.0.0"
+  VERSION = "0.6.4"
 end

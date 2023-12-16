@@ -1,7 +1,3 @@
-#### v1.0.0 2023-11-25
-
-- First release.
-
 #### v0.6.4 2023-10-26
 
 - Updated tests.
@@ -76,4 +72,4 @@
 
 #### v0.1.0 2023-07-31
 
-- Start project.
+- First release.

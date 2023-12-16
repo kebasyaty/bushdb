@@ -1,4 +1,4 @@
-[![Logo](https://github.com/kebasyaty/bushdb/raw/v1/logo/logo.svg "Logo")](https://github.com/kebasyaty/bushdb "Logo")
+[![Logo](https://github.com/kebasyaty/bushdb/raw/v0/logo/logo.svg "Logo")](https://github.com/kebasyaty/bushdb "Logo")
 
 # bushDB
 
@@ -19,14 +19,12 @@ There is no need to iterate through all the keys in search of the desired value.
 <!-- [![Github all releases](https://img.shields.io/github/downloads/kebasyaty/bushdb/total.svg)](https://GitHub.com/kebasyaty/bushdb/releases/) -->
 [![GitHub license](https://badgen.net/github/license/kebasyaty/bushdb)](https://github.com/kebasyaty/bushdb/blob/v0/LICENSE)
 
-<!--
 <p>
   <a href="https://github.com/kebasyaty/bushdb" target="_blank">
-    <img src="https://github.com/kebasyaty/bushdb/raw/v1/pictures/status_project/Status_Project-Stable-.svg"
+    <img src="https://github.com/kebasyaty/bushdb/raw/v0/pictures/status_project/Status_Project-Beta-.svg"
       alt="Status Project">
   </a>
 </p>
--->
 
 ## Installation
 
@@ -36,7 +34,7 @@ There is no need to iterate through all the keys in search of the desired value.
    dependencies:
      bushdb:
        github: kebasyaty/bushdb
-       version: ~> 1.0.0
+       version: ~> 0.6.4
    ```
 
 2. Run `shards install`
@@ -74,11 +72,11 @@ db.napalm? # => true
 
 ## License
 
-**This project is licensed under the** [MIT](https://github.com/kebasyaty/bushdb/blob/v1/LICENSE "MIT").
+**This project is licensed under the** [MIT](https://github.com/kebasyaty/bushdb/blob/v0/LICENSE "MIT").
 
 ## Changelog
 
-[View the change history.](https://github.com/kebasyaty/bushdb/blob/v1/CHANGELOG.md "View the change history.")
+[View the change history.](https://github.com/kebasyaty/bushdb/blob/v0/CHANGELOG.md "View the change history.")
 
 ## Contributing
 
