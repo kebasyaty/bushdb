@@ -16,7 +16,7 @@ There is no need to iterate through all the keys in search of the desired value.
 [![CI](https://github.com/kebasyaty/bushdb/workflows/CI/badge.svg)](https://github.com/kebasyaty/bushdb/actions)
 [![Docs](https://img.shields.io/badge/docs-available-brightgreen.svg)](https://kebasyaty.github.io/bushdb/)
 [![Crystal](https://img.shields.io/badge/crystal-v1.9%2B-red)](https://crystal-lang.org/)
-<!-- [![Github all releases](https://img.shields.io/github/downloads/kebasyaty/bushdb/total.svg)](https://GitHub.com/kebasyaty/bushdb/releases/) -->
+[![Github all releases](https://img.shields.io/github/downloads/kebasyaty/bushdb/total.svg)](https://GitHub.com/kebasyaty/bushdb/releases/)
 [![GitHub license](https://badgen.net/github/license/kebasyaty/bushdb)](https://github.com/kebasyaty/bushdb/blob/v0/LICENSE)
 
 <p>
