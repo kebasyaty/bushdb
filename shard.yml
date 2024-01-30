@@ -12,3 +12,8 @@ description: |
 homepage: https://github.com/kebasyaty/bushdb
 repository: https://github.com/kebasyaty/bushdb
 documentation: https://kebasyaty.github.io/bushdb/
+
+dependencies:
+  ameba:
+    github: crystal-ameba/ameba
+    version: ~> 1.6.1

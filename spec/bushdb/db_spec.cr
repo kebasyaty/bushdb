@@ -214,7 +214,7 @@ describe BushDB::DB do
       ex = expect_raises(BushDB::Errors::DirMissing) do
         DB_TEST.napalm
       end
-      ex.message.should eq %(The root directory "#{DB_TEST.root_store.to_s}" is missing.)
+      ex.message.should eq %(The root directory "#{DB_TEST.root_store}" is missing.)
     end
     it "=> make sure the root directory is missing" do
       Dir.exists?(DB_TEST.root_store).should be_false
