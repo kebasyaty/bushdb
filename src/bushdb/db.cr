@@ -56,19 +56,19 @@ module BushDB
       branch_path : Path = Path.new(@root_store, @db_name, md5_path_str)
       # If the branch does not exist, need to create it.
       unless Dir.exists?(branch_path)
-        Dir.mkdir_p(branch_path, mode = @branch_mode)
+        Dir.mkdir_p(branch_path)
       end
       # The path to the database cell.
       leaf_path : Path = branch_path / "leaf.json"
       # Write key-value to the database.
-      unless File.file?(leaf_path)
+      if !File.file?(leaf_path)
         # Add new data to a blank leaf.
-        File.write(leaf_path, Hash{key => value}.to_json, perm = @leaf_mode)
+        File.write(leaf_path, Hash{key => value}.to_json)
       else
         # Add new data or update existing data.
         data : Hash(String, String) = Hash(String, String).from_json(File.read(leaf_path))
         data[key] = value
-        File.write(leaf_path, data.to_json, perm = @leaf_mode)
+        File.write(leaf_path, data.to_json)
       end
     end
 
@@ -150,7 +150,7 @@ module BushDB
       if File.file?(leaf_path)
         data : Hash(String, String) = Hash(String, String).from_json(File.read(leaf_path))
         raise BushDB::Errors::KeyMissing.new(key) if data.delete(key).nil?
-        File.write(leaf_path, data.to_json, perm = @leaf_mode)
+        File.write(leaf_path, data.to_json)
       else
         raise BushDB::Errors::KeyMissing.new(key)
       end
@@ -182,7 +182,7 @@ module BushDB
       if File.file?(leaf_path)
         data : Hash(String, String) = Hash(String, String).from_json(File.read(leaf_path))
         return false if data.delete(key).nil?
-        File.write(leaf_path, data.to_json, perm = @leaf_mode)
+        File.write(leaf_path, data.to_json)
         return true
       end
       false

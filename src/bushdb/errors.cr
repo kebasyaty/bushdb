@@ -17,7 +17,7 @@ module BushDB
         if directory.is_a?(String)
           super(%(The database directory "#{directory}" is missing.))
         else
-          super(%(The root directory "#{directory.to_s}" is missing.))
+          super(%(The root directory "#{directory}" is missing.))
         end
       end
     end
