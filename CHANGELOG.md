@@ -1,3 +1,7 @@
+#### v0.6.5 2024-01-31
+
+- Fixed violations detected by Ameba.
+
 #### v0.6.4 2023-10-26
 
 - Updated tests.
