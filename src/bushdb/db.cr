@@ -31,7 +31,7 @@ module BushDB
     # Directory permissions.
     # <br>
     # The linux-style permission mode can be specified, with a default of 777 (0o777).
-    property branch_mode : Int32 = 777
+    property branch_mode : Int32 = 0o777
     # File permissions.
     # <br>
     # Default by 0o666 for read-write.
@@ -56,19 +56,30 @@ module BushDB
       branch_path : Path = Path.new(@root_store, @db_name, md5_path_str)
       # If the branch does not exist, need to create it.
       unless Dir.exists?(branch_path)
-        Dir.mkdir_p(branch_path)
+        Dir.mkdir_p(
+          "path": branch_path,
+          "mode": @branch_mode
+        )
       end
       # The path to the database cell.
       leaf_path : Path = branch_path / "leaf.json"
       # Write key-value to the database.
       if !File.file?(leaf_path)
         # Add new data to a blank leaf.
-        File.write(leaf_path, Hash{key => value}.to_json)
+        File.write(
+          "filename": leaf_path,
+          "content": Hash{key => value}.to_json,
+          "perm": @leaf_mode
+        )
       else
         # Add new data or update existing data.
         data : Hash(String, String) = Hash(String, String).from_json(File.read(leaf_path))
         data[key] = value
-        File.write(leaf_path, data.to_json)
+        File.write(
+          "filename": leaf_path,
+          "content": data.to_json,
+          "perm": @leaf_mode
+        )
       end
     end
 
@@ -150,7 +161,11 @@ module BushDB
       if File.file?(leaf_path)
         data : Hash(String, String) = Hash(String, String).from_json(File.read(leaf_path))
         raise BushDB::Errors::KeyMissing.new(key) if data.delete(key).nil?
-        File.write(leaf_path, data.to_json)
+        File.write(
+          "filename": leaf_path,
+          "content": data.to_json,
+          "perm": @leaf_mode
+        )
       else
         raise BushDB::Errors::KeyMissing.new(key)
       end
@@ -182,7 +197,11 @@ module BushDB
       if File.file?(leaf_path)
         data : Hash(String, String) = Hash(String, String).from_json(File.read(leaf_path))
         return false if data.delete(key).nil?
-        File.write(leaf_path, data.to_json)
+        File.write(
+          "filename": leaf_path,
+          "content": data.to_json,
+          "perm": @leaf_mode
+        )
         return true
       end
       false
