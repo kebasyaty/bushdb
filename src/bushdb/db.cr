@@ -31,11 +31,11 @@ module BushDB
     # Directory permissions.
     # <br>
     # The linux-style permission mode can be specified, with a default of 777 (0o777).
-    property branch_mode : Int32 = 0o777
+    property branch_mode : Int32 = 0o770
     # File permissions.
     # <br>
     # Default by 0o666 for read-write.
-    property leaf_mode : File::Permissions = File::Permissions.new(0o666)
+    property leaf_mode : File::Permissions = File::Permissions.new(0o660)
 
     # Add or update key-value pair(s) to the database.
     #
