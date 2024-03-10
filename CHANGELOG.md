@@ -1,3 +1,7 @@
+#### v0.6.7 2024-03-10
+
+- Fixed shard.yml for Ameba.
+
 #### v0.6.5 2024-01-31
 
 - Fixed violations detected by Ameba.
