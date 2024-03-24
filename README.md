@@ -1,5 +1,3 @@
-<!-- [![Logo](https://github.com/kebasyaty/bushdb/raw/v0/logo/logo.svg "Logo")](https://github.com/kebasyaty/bushdb "Logo") -->
-
 # bushDB
 
 **bushDB** is a fast key-value storage library that provides an ordered mapping from string keys to string values.
@@ -33,7 +31,7 @@ There is no need to iterate through all the keys in search of the desired value.
    dependencies:
      bushdb:
        github: kebasyaty/bushdb
-       version: ~> 0.6.7
+       version: ~> 0.6.8
    ```
 
 2. Run `shards install`
