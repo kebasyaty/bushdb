@@ -1,5 +1,3 @@
-<!-- [![Logo](https://github.com/kebasyaty/bushdb/raw/v0/logo/logo.svg "Logo")](https://github.com/kebasyaty/bushdb "Logo") -->
-
 # bushDB
 
 **bushDB** is a fast key-value storage library that provides an ordered mapping from string keys to string values.
