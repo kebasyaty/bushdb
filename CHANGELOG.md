@@ -1,3 +1,7 @@
+#### v0.6.9 2024-04-13
+
+- Update README.md
+
 #### v0.6.8 2024-03-24
 
 - Fixed README.md
