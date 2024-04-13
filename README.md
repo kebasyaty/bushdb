@@ -15,6 +15,7 @@ There is no need to iterate through all the keys in search of the desired value.
 [![Docs](https://img.shields.io/badge/docs-available-brightgreen.svg)](https://kebasyaty.github.io/bushdb/)
 [![Crystal](https://img.shields.io/badge/crystal-v1.9%2B-red)](https://crystal-lang.org/)
 [![GitHub license](https://badgen.net/github/license/kebasyaty/bushdb)](https://github.com/kebasyaty/bushdb/blob/v0/LICENSE)
+[![GitHub](https://badgen.net/badge/icon/github?icon=github&label)](https://github.com/kebasyaty/bushdb)
 
 <p>
   <a href="https://github.com/kebasyaty/bushdb" target="_blank">
