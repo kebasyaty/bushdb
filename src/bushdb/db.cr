@@ -47,7 +47,7 @@ module BushDB
     # db.set("key name", "Some text")
     # ```
     #
-    def set(key : String, value : String)
+    def set(key : String, value : String) : Nil
       # Key to md5 sum.
       md5_str : String = Digest::MD5.hexdigest(key)
       # Convert md5 sum to path.
@@ -95,7 +95,7 @@ module BushDB
     # db.get("key missing") # => nil
     # ```
     #
-    def get(key : String) : String | Nil
+    def get(key : String) : String?
       # Key to md5 sum.
       md5_str : String = Digest::MD5.hexdigest(key)
       # Convert md5 sum to path.
@@ -150,7 +150,7 @@ module BushDB
     # db.delete("key name") # => KeyMissing
     # ```
     #
-    def delete(key : String)
+    def delete(key : String) : Nil
       # Key to md5 sum.
       md5_str : String = Digest::MD5.hexdigest(key)
       # Convert md5 sum to path.
@@ -181,12 +181,12 @@ module BushDB
     #
     # db = BushDB::DB.new
     # db.set("key name", "Some text")
-    # db.delete?("key name") # => true
-    # db.get("key name")     # => nil
-    # db.delete?("key name") # => false
+    # db.delete("key name") # => true
+    # db.get("key name")    # => nil
+    # db.delete("key name") # => false
     # ```
     #
-    def delete?(key : String) : Bool
+    def delete(key : String) : Bool
       # Key to md5 sum.
       md5_str : String = Digest::MD5.hexdigest(key)
       # Convert md5 sum to path.
@@ -221,7 +221,7 @@ module BushDB
     # db.clear # => DirMissing
     # ```
     #
-    def clear
+    def clear : Nil
       db_path : Path = @root_store / @db_name
       return FileUtils.rm_rf(db_path) if Dir.exists?(db_path)
       raise BushDB::Errors::DirMissing.new(@db_name)
@@ -237,11 +237,11 @@ module BushDB
     # require "bushdb"
     #
     # db = BushDB::DB.new
-    # db.clear? # => true
-    # db.clear? # => false
+    # db.clear # => true
+    # db.clear # => false
     # ```
     #
-    def clear? : Bool
+    def clear : Bool
       db_path : Path = @root_store / @db_name
       if Dir.exists?(db_path)
         FileUtils.rm_rf(db_path)
@@ -265,7 +265,7 @@ module BushDB
     # db.napalm # => DirMissing
     # ```
     #
-    def napalm
+    def napalm : Nil
       return FileUtils.rm_rf(@root_store) if Dir.exists?(@root_store)
       raise BushDB::Errors::DirMissing.new(@root_store)
     end
@@ -281,11 +281,11 @@ module BushDB
     # require "bushdb"
     #
     # db = BushDB::DB.new
-    # db.napalm? # => true
-    # db.napalm? # => false
+    # db.napalm # => true
+    # db.napalm # => false
     # ```
     #
-    def napalm? : Bool
+    def napalm : Bool
       if Dir.exists?(@root_store)
         FileUtils.rm_rf(@root_store)
         return true
