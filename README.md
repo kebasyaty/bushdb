@@ -31,7 +31,7 @@ There is no need to iterate through all the keys in search of the desired value.
    dependencies:
      bushdb:
        github: kebasyaty/bushdb
-       version: ~> 0.6.9
+       version: ~> 0.6.10
    ```
 
 2. Run `shards install`
