@@ -116,11 +116,11 @@ module BushDB
     #
     # db = BushDB::DB.new
     # db.set("key name", "Some text")
-    # db.has("key name")    # => true
-    # db.has("key missing") # => false
+    # db.has?("key name")    # => true
+    # db.has?("key missing") # => false
     # ```
     #
-    def has(key : String) : Bool
+    def has?(key : String) : Bool
       # Key to md5 sum.
       md5_str : String = Digest::MD5.hexdigest(key)
       # Convert md5 sum to path.
@@ -171,42 +171,6 @@ module BushDB
       end
     end
 
-    # Delete the key-value from the database.
-    # <br>
-    # Returns false if the key is missing.
-    #
-    # Example:
-    # ```
-    # require "bushdb"
-    #
-    # db = BushDB::DB.new
-    # db.set("key name", "Some text")
-    # db.delete("key name") # => true
-    # db.get("key name")    # => nil
-    # db.delete("key name") # => false
-    # ```
-    #
-    def delete(key : String) : Bool
-      # Key to md5 sum.
-      md5_str : String = Digest::MD5.hexdigest(key)
-      # Convert md5 sum to path.
-      md5_path_str : String = md5_str.split(//).join("/")
-      # The path to the database cell.
-      leaf_path : Path = Path.new(@root_store, @db_name, md5_path_str, "leaf.json")
-      # Delete the key
-      if File.file?(leaf_path)
-        data : Hash(String, String) = Hash(String, String).from_json(File.read(leaf_path))
-        return false if data.delete(key).nil?
-        File.write(
-          "filename": leaf_path,
-          "content": data.to_json,
-          "perm": @leaf_mode
-        )
-        return true
-      end
-      false
-    end
-
     # Remove directory of database.
     # <br>
     # If the directory is missing, an #ErrorDirMissing exception is raised.
@@ -227,29 +191,6 @@ module BushDB
       raise BushDB::Errors::DirMissing.new(@db_name)
     end
 
-    # Remove directory of database.
-    # <br>
-    # Returns false if the directory is missing.
-    # WARNING: Be careful, this will remove all keys.
-    #
-    # Example:
-    # ```
-    # require "bushdb"
-    #
-    # db = BushDB::DB.new
-    # db.clear # => true
-    # db.clear # => false
-    # ```
-    #
-    def clear : Bool
-      db_path : Path = @root_store / @db_name
-      if Dir.exists?(db_path)
-        FileUtils.rm_rf(db_path)
-        return true
-      end
-      false
-    end
-
     # Delete the root directory.
     # <br>
     # If the directory is missing, an #ErrorDirMissing exception is raised.
@@ -268,29 +209,6 @@ module BushDB
     def napalm : Nil
       return FileUtils.rm_rf(@root_store) if Dir.exists?(@root_store)
       raise BushDB::Errors::DirMissing.new(@root_store)
-    end
-
-    # Delete the root directory.
-    # <br>
-    # Returns false if the root directory is missing.
-    # WARNING: Be careful, this will remove all databases.
-    # NOTE: The main purpose is tests.
-    #
-    # Example:
-    # ```
-    # require "bushdb"
-    #
-    # db = BushDB::DB.new
-    # db.napalm # => true
-    # db.napalm # => false
-    # ```
-    #
-    def napalm : Bool
-      if Dir.exists?(@root_store)
-        FileUtils.rm_rf(@root_store)
-        return true
-      end
-      false
     end
   end
 end
