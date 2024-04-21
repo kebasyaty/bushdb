@@ -15,7 +15,6 @@ There is no need to iterate through all the keys in search of the desired value.
 [![Docs](https://img.shields.io/badge/docs-available-brightgreen.svg)](https://kebasyaty.github.io/bushdb/)
 [![Crystal](https://img.shields.io/badge/crystal-v1.9%2B-red)](https://crystal-lang.org/)
 [![GitHub license](https://badgen.net/github/license/kebasyaty/bushdb)](https://github.com/kebasyaty/bushdb/blob/v0/LICENSE)
-[![GitHub](https://badgen.net/badge/icon/github?icon=github&label)](https://github.com/kebasyaty/bushdb)
 
 <p>
   <a href="https://github.com/kebasyaty/bushdb" target="_blank">
@@ -32,7 +31,7 @@ There is no need to iterate through all the keys in search of the desired value.
    dependencies:
      bushdb:
        github: kebasyaty/bushdb
-       version: ~> 0.6.9
+       version: ~> 0.6.10
    ```
 
 2. Run `shards install`
@@ -48,24 +47,19 @@ db : BushDB::DB = BushDB::DB.new
 # Set, get, delete
 db.set("key name", "Some text")
 db.get("key name") # => "Some text"
-db.has("key name") # => true
+db.has?("key name") # => true
 #
 db.delete("key name")
-# or
-db.delete?("key name") # => true
 #
 # If the key has been deleted.
 db.get("key name") # => nil
+db.has?("key name") # => false
 
 # Delete the database directory with all the keys in it.
 db.clear
-# or
-db.clear? # => true
 
 # Delete the root directory with all databases in it.
 db.napalm
-# or
-db.napalm? # => true
 ```
 
 ## License
