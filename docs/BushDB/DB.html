@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Crystal Docs 1.11.2">
-<meta name="crystal_docs.project_version" content="v0-dev">
+<meta name="crystal_docs.project_version" content="0.6.10-dev">
 <meta name="crystal_docs.project_name" content="bushdb">
 
 
@@ -14,7 +14,7 @@
 <script type="text/javascript" src="../js/doc.js"></script>
 
   <meta name="repository-name" content="bushdb">
-  <title>BushDB::DB - bushdb v0-dev</title>
+  <title>BushDB::DB - bushdb 0.6.10-dev</title>
   <script type="text/javascript">
     CrystalDocs.base_path = "../";
   </script>
@@ -45,7 +45,7 @@
       </h1>
 
       <span class="project-version">
-        v0-dev
+        0.6.10-dev
       </span>
     </div>
   </div>
@@ -217,14 +217,7 @@ db.napalm</code></pre>
       </li>
     
       <li class="entry-summary">
-        <a href="#clear-instance-method" class="signature"><strong>#clear</strong></a>
-        
-          <div class="summary"><p>Remove directory of database.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#clear%3F%3ABool-instance-method" class="signature"><strong>#clear?</strong> : Bool</a>
+        <a href="#clear%3ANil-instance-method" class="signature"><strong>#clear</strong> : Nil</a>
         
           <div class="summary"><p>Remove directory of database.</p></div>
         
@@ -245,14 +238,7 @@ db.napalm</code></pre>
       </li>
     
       <li class="entry-summary">
-        <a href="#delete%28key%3AString%29-instance-method" class="signature"><strong>#delete</strong>(key : String)</a>
-        
-          <div class="summary"><p>Delete the key-value from the database.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#delete%3F%28key%3AString%29%3ABool-instance-method" class="signature"><strong>#delete?</strong>(key : String) : Bool</a>
+        <a href="#delete%28key%3AString%29%3ANil-instance-method" class="signature"><strong>#delete</strong>(key : String) : Nil</a>
         
           <div class="summary"><p>Delete the key-value from the database.</p></div>
         
@@ -266,7 +252,7 @@ db.napalm</code></pre>
       </li>
     
       <li class="entry-summary">
-        <a href="#has%28key%3AString%29%3ABool-instance-method" class="signature"><strong>#has</strong>(key : String) : Bool</a>
+        <a href="#has%3F%28key%3AString%29%3ABool-instance-method" class="signature"><strong>#has?</strong>(key : String) : Bool</a>
         
           <div class="summary"><p>Check the presence of a key in the database.</p></div>
         
@@ -292,14 +278,7 @@ db.napalm</code></pre>
       </li>
     
       <li class="entry-summary">
-        <a href="#napalm-instance-method" class="signature"><strong>#napalm</strong></a>
-        
-          <div class="summary"><p>Delete the root directory.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#napalm%3F%3ABool-instance-method" class="signature"><strong>#napalm?</strong> : Bool</a>
+        <a href="#napalm%3ANil-instance-method" class="signature"><strong>#napalm</strong> : Nil</a>
         
           <div class="summary"><p>Delete the root directory.</p></div>
         
@@ -320,7 +299,7 @@ db.napalm</code></pre>
       </li>
     
       <li class="entry-summary">
-        <a href="#set%28key%3AString%2Cvalue%3AString%29-instance-method" class="signature"><strong>#set</strong>(key : String, value : String)</a>
+        <a href="#set%28key%3AString%2Cvalue%3AString%29%3ANil-instance-method" class="signature"><strong>#set</strong>(key : String, value : String) : Nil</a>
         
           <div class="summary"><p>Add or update key-value pair(s) to the database.</p></div>
         
@@ -455,12 +434,12 @@ The linux-style permission mode can be specified, with a default of 777 (0o777).
       </div>
     </div>
   
-    <div class="entry-detail" id="clear-instance-method">
+    <div class="entry-detail" id="clear:Nil-instance-method">
       <div class="signature">
         
-        def <strong>clear</strong>
+        def <strong>clear</strong> : Nil
 
-        <a class="method-permalink" href="#clear-instance-method">#</a>
+        <a class="method-permalink" href="#clear%3ANil-instance-method">#</a>
       </div>
       
         <div class="doc">
@@ -475,34 +454,6 @@ If the directory is missing, an #ErrorDirMissing exception is raised.</p>
 db <span class="o">=</span> <span class="t">BushDB</span><span class="t">::</span><span class="t">DB</span>.new
 db.clear
 db.clear <span class="c"># =&gt; DirMissing</span></code></pre>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="clear?:Bool-instance-method">
-      <div class="signature">
-        
-        def <strong>clear?</strong> : Bool
-
-        <a class="method-permalink" href="#clear%3F%3ABool-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>Remove directory of database.
-<br>
-Returns false if the directory is missing.</p>
-<p><span class="flag yellow">WARNING</span>  Be careful, this will remove all keys.</p>
-<p>Example:</p>
-<pre><code class="language-crystal"><span class="k">require</span> <span class="s">&quot;bushdb&quot;</span>
-
-db <span class="o">=</span> <span class="t">BushDB</span><span class="t">::</span><span class="t">DB</span>.new
-db.clear? <span class="c"># =&gt; true</span>
-db.clear? <span class="c"># =&gt; false</span></code></pre>
         </div>
       
       <br/>
@@ -553,12 +504,12 @@ Defaule by = &quot;store&quot;</p>
       </div>
     </div>
   
-    <div class="entry-detail" id="delete(key:String)-instance-method">
+    <div class="entry-detail" id="delete(key:String):Nil-instance-method">
       <div class="signature">
         
-        def <strong>delete</strong>(key : String)
+        def <strong>delete</strong>(key : String) : Nil
 
-        <a class="method-permalink" href="#delete%28key%3AString%29-instance-method">#</a>
+        <a class="method-permalink" href="#delete%28key%3AString%29%3ANil-instance-method">#</a>
       </div>
       
         <div class="doc">
@@ -574,35 +525,6 @@ db.set(<span class="s">&quot;key name&quot;</span>, <span class="s">&quot;Some t
 db.delete(<span class="s">&quot;key name&quot;</span>)
 db.get(<span class="s">&quot;key name&quot;</span>)    <span class="c"># =&gt; nil</span>
 db.delete(<span class="s">&quot;key name&quot;</span>) <span class="c"># =&gt; KeyMissing</span></code></pre>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="delete?(key:String):Bool-instance-method">
-      <div class="signature">
-        
-        def <strong>delete?</strong>(key : String) : Bool
-
-        <a class="method-permalink" href="#delete%3F%28key%3AString%29%3ABool-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>Delete the key-value from the database.
-<br>
-Returns false if the key is missing.</p>
-<p>Example:</p>
-<pre><code class="language-crystal"><span class="k">require</span> <span class="s">&quot;bushdb&quot;</span>
-
-db <span class="o">=</span> <span class="t">BushDB</span><span class="t">::</span><span class="t">DB</span>.new
-db.set(<span class="s">&quot;key name&quot;</span>, <span class="s">&quot;Some text&quot;</span>)
-db.delete?(<span class="s">&quot;key name&quot;</span>) <span class="c"># =&gt; true</span>
-db.get(<span class="s">&quot;key name&quot;</span>)     <span class="c"># =&gt; nil</span>
-db.delete?(<span class="s">&quot;key name&quot;</span>) <span class="c"># =&gt; false</span></code></pre>
         </div>
       
       <br/>
@@ -637,12 +559,12 @@ db.get(<span class="s">&quot;key missing&quot;</span>) <span class="c"># =&gt; n
       </div>
     </div>
   
-    <div class="entry-detail" id="has(key:String):Bool-instance-method">
+    <div class="entry-detail" id="has?(key:String):Bool-instance-method">
       <div class="signature">
         
-        def <strong>has</strong>(key : String) : Bool
+        def <strong>has?</strong>(key : String) : Bool
 
-        <a class="method-permalink" href="#has%28key%3AString%29%3ABool-instance-method">#</a>
+        <a class="method-permalink" href="#has%3F%28key%3AString%29%3ABool-instance-method">#</a>
       </div>
       
         <div class="doc">
@@ -653,8 +575,8 @@ db.get(<span class="s">&quot;key missing&quot;</span>) <span class="c"># =&gt; n
 
 db <span class="o">=</span> <span class="t">BushDB</span><span class="t">::</span><span class="t">DB</span>.new
 db.set(<span class="s">&quot;key name&quot;</span>, <span class="s">&quot;Some text&quot;</span>)
-db.has(<span class="s">&quot;key name&quot;</span>)    <span class="c"># =&gt; true</span>
-db.has(<span class="s">&quot;key missing&quot;</span>) <span class="c"># =&gt; false</span></code></pre>
+db.has?(<span class="s">&quot;key name&quot;</span>)    <span class="c"># =&gt; true</span>
+db.has?(<span class="s">&quot;key missing&quot;</span>) <span class="c"># =&gt; false</span></code></pre>
         </div>
       
       <br/>
@@ -719,12 +641,12 @@ Default by 0o666 for read-write.</p>
       </div>
     </div>
   
-    <div class="entry-detail" id="napalm-instance-method">
+    <div class="entry-detail" id="napalm:Nil-instance-method">
       <div class="signature">
         
-        def <strong>napalm</strong>
+        def <strong>napalm</strong> : Nil
 
-        <a class="method-permalink" href="#napalm-instance-method">#</a>
+        <a class="method-permalink" href="#napalm%3ANil-instance-method">#</a>
       </div>
       
         <div class="doc">
@@ -740,35 +662,6 @@ If the directory is missing, an #ErrorDirMissing exception is raised.</p>
 db <span class="o">=</span> <span class="t">BushDB</span><span class="t">::</span><span class="t">DB</span>.new
 db.napalm
 db.napalm <span class="c"># =&gt; DirMissing</span></code></pre>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="napalm?:Bool-instance-method">
-      <div class="signature">
-        
-        def <strong>napalm?</strong> : Bool
-
-        <a class="method-permalink" href="#napalm%3F%3ABool-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>Delete the root directory.
-<br>
-Returns false if the root directory is missing.</p>
-<p><span class="flag yellow">WARNING</span>  Be careful, this will remove all databases.</p>
-<p><span class="flag purple">NOTE</span>  The main purpose is tests.</p>
-<p>Example:</p>
-<pre><code class="language-crystal"><span class="k">require</span> <span class="s">&quot;bushdb&quot;</span>
-
-db <span class="o">=</span> <span class="t">BushDB</span><span class="t">::</span><span class="t">DB</span>.new
-db.napalm? <span class="c"># =&gt; true</span>
-db.napalm? <span class="c"># =&gt; false</span></code></pre>
         </div>
       
       <br/>
@@ -819,12 +712,12 @@ Defaule by = &quot;BushDB&quot;</p>
       </div>
     </div>
   
-    <div class="entry-detail" id="set(key:String,value:String)-instance-method">
+    <div class="entry-detail" id="set(key:String,value:String):Nil-instance-method">
       <div class="signature">
         
-        def <strong>set</strong>(key : String, value : String)
+        def <strong>set</strong>(key : String, value : String) : Nil
 
-        <a class="method-permalink" href="#set%28key%3AString%2Cvalue%3AString%29-instance-method">#</a>
+        <a class="method-permalink" href="#set%28key%3AString%2Cvalue%3AString%29%3ANil-instance-method">#</a>
       </div>
       
         <div class="doc">
