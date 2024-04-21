@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Crystal Docs 1.11.2">
-<meta name="crystal_docs.project_version" content="v0-dev">
+<meta name="crystal_docs.project_version" content="0.6.10-dev">
 <meta name="crystal_docs.project_name" content="bushdb">
 
 
@@ -14,7 +14,7 @@
 <script type="text/javascript" src="js/doc.js"></script>
 
   <meta name="repository-name" content="bushdb">
-  <title>bushdb v0-dev</title>
+  <title>bushdb 0.6.10-dev</title>
   <script type="text/javascript">
   CrystalDocs.base_path = "";
   </script>
@@ -45,7 +45,7 @@
       </h1>
 
       <span class="project-version">
-        v0-dev
+        0.6.10-dev
       </span>
     </div>
   </div>
@@ -121,8 +121,7 @@ There is no need to iterate through all the keys in search of the desired value.
 <p><a href="https://github.com/kebasyaty/bushdb/actions"><img src="https://github.com/kebasyaty/bushdb/workflows/CI/badge.svg" alt="CI" /></a>
 <a href="https://kebasyaty.github.io/bushdb/"><img src="https://img.shields.io/badge/docs-available-brightgreen.svg" alt="Docs" /></a>
 <a href="https://crystal-lang.org/"><img src="https://img.shields.io/badge/crystal-v1.9+-red" alt="Crystal" /></a>
-<a href="https://github.com/kebasyaty/bushdb/blob/v0/LICENSE"><img src="https://badgen.net/github/license/kebasyaty/bushdb" alt="GitHub license" /></a>
-<a href="https://github.com/kebasyaty/bushdb"><img src="https://badgen.net/badge/icon/github?icon=github&amp;label" alt="GitHub" /></a></p>
+<a href="https://github.com/kebasyaty/bushdb/blob/v0/LICENSE"><img src="https://badgen.net/github/license/kebasyaty/bushdb" alt="GitHub license" /></a></p>
 <p>
   <a href="https://github.com/kebasyaty/bushdb" target="_blank">
     <img src="https://github.com/kebasyaty/bushdb/raw/v0/pictures/status_project/Status_Project-Beta-.svg"
@@ -140,7 +139,7 @@ There is no need to iterate through all the keys in search of the desired value.
 <pre><code class="language-yaml">dependencies:
   bushdb:
     github: kebasyaty/bushdb
-    version: ~&gt; 0.6.9</code></pre>
+    version: ~&gt; 0.6.10</code></pre>
 </li>
 <li>
 <p>Run <code>shards install</code></p>
@@ -159,24 +158,19 @@ db : <span class="t">BushDB</span><span class="t">::</span><span class="t">DB</s
 <span class="c"># Set, get, delete</span>
 db.set(<span class="s">&quot;key name&quot;</span>, <span class="s">&quot;Some text&quot;</span>)
 db.get(<span class="s">&quot;key name&quot;</span>) <span class="c"># =&gt; &quot;Some text&quot;</span>
-db.has(<span class="s">&quot;key name&quot;</span>) <span class="c"># =&gt; true</span>
+db.has?(<span class="s">&quot;key name&quot;</span>) <span class="c"># =&gt; true</span>
 <span class="c">#</span>
 db.delete(<span class="s">&quot;key name&quot;</span>)
-<span class="c"># or</span>
-db.delete?(<span class="s">&quot;key name&quot;</span>) <span class="c"># =&gt; true</span>
 <span class="c">#</span>
 <span class="c"># If the key has been deleted.</span>
 db.get(<span class="s">&quot;key name&quot;</span>) <span class="c"># =&gt; nil</span>
+db.has?(<span class="s">&quot;key name&quot;</span>) <span class="c"># =&gt; false</span>
 
 <span class="c"># Delete the database directory with all the keys in it.</span>
 db.clear
-<span class="c"># or</span>
-db.clear? <span class="c"># =&gt; true</span>
 
 <span class="c"># Delete the root directory with all databases in it.</span>
-db.napalm
-<span class="c"># or</span>
-db.napalm? <span class="c"># =&gt; true</span></code></pre>
+db.napalm</code></pre>
 <h2><a id="license" class="anchor" href="#license">
   <svg class="octicon-link" aria-hidden="true">
     <use href="#octicon-link"/>
