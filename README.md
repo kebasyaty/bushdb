@@ -15,11 +15,11 @@ There is no need to iterate through all the keys in search of the desired value.
 [![Docs](https://img.shields.io/badge/docs-available-brightgreen.svg)](https://kebasyaty.github.io/bushdb/)
 [![Crystal](https://img.shields.io/badge/crystal-v1.9%2B-red)](https://crystal-lang.org/)
 [![GitHub release](https://img.shields.io/github/release/kebasyaty/bushdb)](https://github.com/kebasyaty/bushdb/releases/)
-[![GitHub license](https://badgen.net/github/license/kebasyaty/bushdb)](https://github.com/kebasyaty/bushdb/blob/v0/LICENSE)
+[![GitHub license](https://badgen.net/github/license/kebasyaty/bushdb)](https://github.com/kebasyaty/bushdb/blob/main/LICENSE)
 [![GitHub repository](https://img.shields.io/badge/--ecebeb?logo=github&logoColor=000000)](https://github.com/kebasyaty/bushdb)
 
 <p>
-  <a href="https://github.com/kebasyaty/bushdb" target="_blank">
+  <a href="https://github.com/kebasyaty/bushdb">
     <img src="https://github.com/kebasyaty/bushdb/raw/v0/pictures/status_project/Status_Project-Beta-.svg"
       alt="Status Project">
   </a>
@@ -66,11 +66,11 @@ db.napalm
 
 ## License
 
-**This project is licensed under the** [MIT](https://github.com/kebasyaty/bushdb/blob/v0/LICENSE "MIT").
+**This project is licensed under the** [MIT](https://github.com/kebasyaty/bushdb/blob/main/LICENSE "MIT").
 
 ## Changelog
 
-[View the change history.](https://github.com/kebasyaty/bushdb/blob/v0/CHANGELOG.md "View the change history.")
+[View the change history.](https://github.com/kebasyaty/bushdb/blob/main/CHANGELOG.md "View the change history.")
 
 ## Contributing
 
