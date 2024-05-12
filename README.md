@@ -64,14 +64,6 @@ db.clear
 db.napalm
 ```
 
-## License
-
-**This project is licensed under the** [MIT](https://github.com/kebasyaty/bushdb/blob/main/LICENSE "MIT").
-
-## Changelog
-
-[View the change history.](https://github.com/kebasyaty/bushdb/blob/main/CHANGELOG.md "View the change history.")
-
 ## Contributing
 
 1. Fork it (<https://github.com/kebasyaty/bushdb/fork>)
@@ -83,3 +75,11 @@ db.napalm
 ## Contributors
 
 - [kebasyaty](https://github.com/kebasyaty) Gennady Kostyunin - creator and maintainer
+
+## Changelog
+
+[View the change history.](https://github.com/kebasyaty/bushdb/blob/main/CHANGELOG.md "View the change history.")
+
+## License
+
+**This project is licensed under the** [MIT](https://github.com/kebasyaty/bushdb/blob/main/LICENSE "MIT").
