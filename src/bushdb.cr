@@ -11,5 +11,5 @@ require "./bushdb/*"
 # <br>
 # There is no need to iterate through all the keys in search of the desired value.
 module BushDB
-  VERSION = "0.6.10"
+  VERSION = {{ `shards version "#{__DIR__}"`.chomp.stringify }}
 end
